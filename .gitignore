@@ -1,0 +1,39 @@
+.DS_Store
+.lock
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.coverage
+htmlcov/
+docs/build/
+
+# Local editors and envs
+.idea/
+.vscode/
+.venv/
+venv/
+
+# EnergyPlus and local run artifacts
+Eplus-*/
+Sinergym-logs/
+Train/
+Test/
+ppo_grid_tb/
+ppo_warehouse_tb/
+IDFVersionUpdater/
+audit.out
+Transition.audit
+eplusout.err
+
+# Large generated model artifacts
+*.zip
+*.pkl
+
+# Local test/debug outputs
+build_log.txt
+cov.xml
+test_out*.txt
+
+# Local reference documents not needed for source control
+EECS-2023-101.pdf
+EECS-2023-101.txt

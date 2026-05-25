@@ -1,0 +1,41 @@
+services:
+  bemsrlstudio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bemsrlstudio
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./persistent/Sinergym-logs:/workspaces/sinergym/Sinergym-logs
+      - ./persistent/models:/workspaces/sinergym/models
+      - ./persistent/trainings:/workspaces/sinergym/trainings
+      - ./persistent/buildings:/workspaces/sinergym/sinergym/data/buildings
+      - ./persistent/weather:/workspaces/sinergym/sinergym/data/weather
+      - ./persistent/default_configuration:/workspaces/sinergym/sinergym/data/default_configuration
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 120s
+
+  docs-studio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bemsrlstudio_docs
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    command: >
+      sh -c "rm -rf docs/build/studio/html
+      && poetry run sphinx-build -a -E -b html -c docs/source docs/source/pages/bems-rl-studio docs/build/studio/html
+      && poetry run python -m http.server 8001 --bind 0.0.0.0 --directory docs/build/studio/html"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8001/"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 120s

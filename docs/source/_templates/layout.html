@@ -1,0 +1,24 @@
+{% extends "!layout.html" %}
+{% block sidebartitle %}
+<div class="studio-sidebar-header">
+    <a href="{{ pathto(root_doc|default(master_doc)) }}" class="studio-sidebar-title">BEMS-RL STUDIO</a>
+    <div class="studio-sidebar-subtitle">Technical documentation</div>
+</div>
+{% include "searchbox.html" %}
+{% endblock %}
+
+{% block footer %} {{ super() }}
+
+<style>
+    /* BEMS-RL Studio documentation theme */
+    .wy-side-nav-search,
+    .wy-nav-top {
+        background: #f8fbfa;
+        color: #172421;
+    }
+
+    .wy-nav-side {
+        background: #172421;
+    }
+</style>
+{% endblock %}

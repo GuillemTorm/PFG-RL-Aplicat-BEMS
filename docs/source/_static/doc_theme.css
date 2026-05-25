@@ -1,0 +1,59 @@
+.wy-nav-content {
+    max-width: 1180px;
+}
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.on a {
+    border-right: 4px solid #7aa79f;
+}
+
+.wy-menu-vertical a {
+    line-height: 1.25;
+    padding-bottom: 0.52rem;
+    padding-top: 0.52rem;
+}
+
+.wy-menu-vertical li.toctree-l1 > a {
+    font-weight: 700;
+}
+
+.wy-menu-vertical li.toctree-l2 > a,
+.wy-menu-vertical li.toctree-l3 > a {
+    font-size: 0.92rem;
+}
+
+.studio-sidebar-header {
+    background: #f8fbfa;
+    border-bottom: 1px solid #dfe9e6;
+    padding: 1.1rem 1rem 0.85rem;
+}
+
+.studio-sidebar-title {
+    color: #172421;
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.studio-sidebar-title:hover {
+    color: #24584f;
+}
+
+.studio-sidebar-subtitle {
+    color: #60746f;
+    font-size: 0.78rem;
+    margin-top: 0.25rem;
+}
+
+.wy-side-nav-search {
+    padding-bottom: 0.9rem;
+    padding-top: 0.85rem;
+}
+
+.wy-side-nav-search input[type="text"] {
+    border: 1px solid #cddbd8;
+    border-radius: 4px;
+    box-shadow: none;
+}

@@ -1,0 +1,39 @@
+services:
+  bemsrlstudio:
+    build: .
+    container_name: bemsrlstudio
+    volumes:
+      # Only mount the UI pages — NOT sinergym/ package so its YAML data stays
+      # inside the container image (avoids OSError 35 from macOS Docker volume mounts).
+      - ./BEMS-RL-STUDIO:/workspaces/sinergym/BEMS-RL-STUDIO
+      - ./persistent/Sinergym-logs:/workspaces/sinergym/Sinergym-logs
+      - ./sinergym/__init__.py:/workspaces/sinergym/sinergym/__init__.py
+      - ./sinergym/data/buildings/ShopWithPVandBattery.epJSON:/workspaces/sinergym/sinergym/data/buildings/ShopWithPVandBattery.epJSON
+      - ./sinergym/data/default_configuration/ShopWithPVandBattery.yaml:/workspaces/sinergym/sinergym/data/default_configuration/ShopWithPVandBattery.yaml
+      - ./sinergym/utils/constants.py:/workspaces/sinergym/sinergym/utils/constants.py
+      - ./sinergym/utils/rewards.py:/workspaces/sinergym/sinergym/utils/rewards.py
+      - ./sinergym/utils/wrappers.py:/workspaces/sinergym/sinergym/utils/wrappers.py
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+    command: poetry run streamlit run BEMS-RL-STUDIO/Inici.py
+
+  docs-studio:
+    build: .
+    container_name: bemsrlstudio_docs
+    volumes:
+      - ./docs/build:/workspaces/sinergym/docs/build
+      - ./BEMS-RL-STUDIO:/workspaces/sinergym/BEMS-RL-STUDIO
+      - ./sinergym/__init__.py:/workspaces/sinergym/sinergym/__init__.py
+      - ./sinergym/data/buildings/ShopWithPVandBattery.epJSON:/workspaces/sinergym/sinergym/data/buildings/ShopWithPVandBattery.epJSON
+      - ./sinergym/data/default_configuration/ShopWithPVandBattery.yaml:/workspaces/sinergym/sinergym/data/default_configuration/ShopWithPVandBattery.yaml
+      - ./sinergym/utils/constants.py:/workspaces/sinergym/sinergym/utils/constants.py
+      - ./sinergym/utils/rewards.py:/workspaces/sinergym/sinergym/utils/rewards.py
+      - ./sinergym/utils/wrappers.py:/workspaces/sinergym/sinergym/utils/wrappers.py
+    ports:
+      - "8001:8001"
+    command: >
+      sh -c "rm -rf docs/build/studio/html
+      && poetry run sphinx-build -a -E -b html -c docs/source docs/source/pages/bems-rl-studio docs/build/studio/html
+      && poetry run python -m http.server 8001 --bind 0.0.0.0 --directory docs/build/studio/html"

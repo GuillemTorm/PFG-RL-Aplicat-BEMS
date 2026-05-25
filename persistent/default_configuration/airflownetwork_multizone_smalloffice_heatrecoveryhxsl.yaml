@@ -1,0 +1,196 @@
+action_space: gym.spaces.Box(low=0, high=1, shape=(1,))
+actuators: {}
+building_file: AirflowNetwork_MultiZone_SmallOffice_HeatRecoveryHXSL.epJSON
+context: {}
+id_base: airflownetwork_multizone_smalloffice_heatrecoveryhxsl
+max_ep_store: 3
+meters:
+  meter_0: ElectricEquipment
+  meter_1: Output:Meter:MeterFileOnly
+reward: sinergym.utils.rewards:LinearReward
+reward_kwargs:
+  energy_variables:
+  - ElectricEquipment
+  - Output:Meter:MeterFileOnly
+  energy_weight: 0.5
+  lambda_energy: 0.0001
+  lambda_temperature: 1.0
+  range_comfort_summer:
+  - 23.0
+  - 26.0
+  range_comfort_winter:
+  - 20.0
+  - 23.5
+  summer_final:
+  - 9
+  - 30
+  summer_start:
+  - 6
+  - 1
+  temperature_variables:
+  - AirLoopHVAC:ZoneMixer
+  - AirLoopHVAC:ZoneSplitter
+  - AirflowNetwork:MultiZone:Component:DetailedOpening
+  - AirflowNetwork:MultiZone:Component:SimpleOpening
+  - AirflowNetwork:MultiZone:Component:ZoneExhaustFan
+  - AirflowNetwork:MultiZone:ExternalNode
+  - AirflowNetwork:MultiZone:ReferenceCrackConditions
+  - AirflowNetwork:MultiZone:Surface
+  - AirflowNetwork:MultiZone:Surface:Crack
+  - AirflowNetwork:MultiZone:Surface:EffectiveLeakageArea
+  - AirflowNetwork:MultiZone:WindPressureCoefficientArray
+  - AirflowNetwork:MultiZone:WindPressureCoefficientValues
+  - AirflowNetwork:MultiZone:Zone
+  - BuildingSurface:Detailed
+  - Fan:ZoneExhaust
+  - FenestrationSurface:Detailed
+  - Output:Surfaces:Drawing
+  - SetpointManager:SingleZone:Reheat
+  - Site:GroundTemperature:BuildingSurface
+  - SurfaceConvectionAlgorithm:Inside
+  - SurfaceConvectionAlgorithm:Outside
+  - Zone
+  - ZoneControl:Thermostat
+  - ZoneHVAC:AirDistributionUnit
+  - ZoneHVAC:EquipmentConnections
+  - ZoneHVAC:EquipmentList
+time_variables:
+- month
+- day_of_month
+- hour
+variables:
+  AirLoopHVAC:ZoneMixer:
+    keys:
+    - '*'
+    variable_names:
+    - AirLoopHVAC:ZoneMixer
+  AirLoopHVAC:ZoneSplitter:
+    keys:
+    - '*'
+    variable_names:
+    - AirLoopHVAC:ZoneSplitter
+  AirflowNetwork:MultiZone:Component:DetailedOpening:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:Component:DetailedOpening
+  AirflowNetwork:MultiZone:Component:SimpleOpening:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:Component:SimpleOpening
+  AirflowNetwork:MultiZone:Component:ZoneExhaustFan:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:Component:ZoneExhaustFan
+  AirflowNetwork:MultiZone:ExternalNode:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:ExternalNode
+  AirflowNetwork:MultiZone:ReferenceCrackConditions:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:ReferenceCrackConditions
+  AirflowNetwork:MultiZone:Surface:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:Surface
+  AirflowNetwork:MultiZone:Surface:Crack:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:Surface:Crack
+  AirflowNetwork:MultiZone:Surface:EffectiveLeakageArea:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:Surface:EffectiveLeakageArea
+  AirflowNetwork:MultiZone:WindPressureCoefficientArray:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:WindPressureCoefficientArray
+  AirflowNetwork:MultiZone:WindPressureCoefficientValues:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:WindPressureCoefficientValues
+  AirflowNetwork:MultiZone:Zone:
+    keys:
+    - '*'
+    variable_names:
+    - AirflowNetwork:MultiZone:Zone
+  BuildingSurface:Detailed:
+    keys:
+    - '*'
+    variable_names:
+    - BuildingSurface:Detailed
+  Fan:ZoneExhaust:
+    keys:
+    - '*'
+    variable_names:
+    - Fan:ZoneExhaust
+  FenestrationSurface:Detailed:
+    keys:
+    - '*'
+    variable_names:
+    - FenestrationSurface:Detailed
+  Output:Surfaces:Drawing:
+    keys:
+    - '*'
+    variable_names:
+    - Output:Surfaces:Drawing
+  SetpointManager:SingleZone:Reheat:
+    keys:
+    - '*'
+    variable_names:
+    - SetpointManager:SingleZone:Reheat
+  Site:GroundTemperature:BuildingSurface:
+    keys:
+    - '*'
+    variable_names:
+    - Site:GroundTemperature:BuildingSurface
+  SurfaceConvectionAlgorithm:Inside:
+    keys:
+    - '*'
+    variable_names:
+    - SurfaceConvectionAlgorithm:Inside
+  SurfaceConvectionAlgorithm:Outside:
+    keys:
+    - '*'
+    variable_names:
+    - SurfaceConvectionAlgorithm:Outside
+  Zone:
+    keys:
+    - '*'
+    variable_names:
+    - Zone
+  ZoneControl:Thermostat:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneControl:Thermostat
+  ZoneHVAC:AirDistributionUnit:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneHVAC:AirDistributionUnit
+  ZoneHVAC:EquipmentConnections:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneHVAC:EquipmentConnections
+  ZoneHVAC:EquipmentList:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneHVAC:EquipmentList
+weather_specification:
+  keys:
+  - default
+  weather_files:
+  - AUS_NSW.Sydney.947670_IWEC.epw

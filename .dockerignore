@@ -1,0 +1,57 @@
+# Exclude everything by default, then whitelist what is actually needed by the Dockerfile:
+# COPY sinergym/pyproject.toml sinergym/poetry.lock sinergym/INSTALL.md sinergym/LICENSE ./
+# COPY sinergym ./sinergym
+
+# Ignore all simulation result directories (can be hundreds of MB)
+Eplus-*/
+IDFVersionUpdater/
+ppo_grid_tb/
+ppo_warehouse_tb/
+Sinergym-logs/
+
+# Ignore the BEMS-RL-STUDIO in development builds unless explicitly re-enabled below.
+BEMS-RL-STUDIO/
+!BEMS-RL-STUDIO
+!BEMS-RL-STUDIO/**
+
+# Ignore docs build output, examples, test output, git data
+docs/build/
+examples/
+images/
+Test/
+Train/
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+.DS_Store
+
+# Ignore misc project files not needed in container
+*.pdf
+*.txt
+*.py
+*.pkl
+*.zip
+*.out
+*.ini
+*.bib
+*.yml
+*.bat
+*.command
+*.audit
+cov.xml
+codecov.yml
+
+# Production build inputs that must stay available even with the generic
+# ignore rules above.
+!docker-entrypoint.sh
+!sinergym/**
+!BEMS-RL-STUDIO/**
+!examples/
+!examples/*.ipynb
+!docs/
+!docs/source/**
+!docs/requirements.txt
+!docs/Makefile
+!docs/make.bat

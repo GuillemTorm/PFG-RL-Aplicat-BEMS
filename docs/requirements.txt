@@ -1,0 +1,17 @@
+sphinx>=7.4,<8
+sphinx-rtd-theme>=2,<3
+sphinxcontrib-jquery>=4.1,<5
+docutils<0.22
+numpy
+pandas
+PyYAML
+gymnasium
+plotly
+pydeck
+scipy
+requests
+tqdm
+trimesh
+xlsxwriter
+eppy
+epw

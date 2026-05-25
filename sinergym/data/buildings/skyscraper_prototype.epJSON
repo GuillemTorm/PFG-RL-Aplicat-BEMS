@@ -1,0 +1,243 @@
+{
+  "Version": {
+    "Version 23.1": {"version_identifier": "23.1"}
+  },
+  "Building": {
+    "HighRise Prototype": {
+      "north_axis": 0.0,
+      "terrain": "Urban",
+      "loads_convergence_tolerance_value": 0.04,
+      "temperature_convergence_tolerance_value": 0.4,
+      "solar_distribution": "FullInteriorAndExteriorWithReflections",
+      "maximum_number_of_warmup_days": 25,
+      "minimum_number_of_warmup_days": 6
+    }
+  },
+  "GlobalGeometryRules": {
+    "GlobalGeometryRules 1": {
+      "starting_vertex_position": "UpperLeftCorner",
+      "vertex_entry_direction": "Counterclockwise",
+      "coordinate_system": "World",
+      "daylighting_reference_point_coordinate_system": "World",
+      "rectangular_surface_coordinate_system": "World"
+    }
+  },
+  "Site:Location": {
+    "Barcelona-ES": {
+      "latitude": 41.3902,
+      "longitude": 2.1540,
+      "time_zone": 1.0,
+      "elevation": 12.0
+    }
+  },
+  "Sizing:Parameters": {
+    "SizingParameters": {
+      "heating_sizing_factor": 1.25,
+      "cooling_sizing_factor": 1.15
+    }
+  },
+  "Timestep": {"Timestep 15": {"number_of_timesteps_per_hour": 4}},
+  "RunPeriod": {
+    "RunPeriod 1": {
+      "begin_month": 1,
+      "begin_day_of_month": 1,
+      "end_month": 12,
+      "end_day_of_month": 31,
+      "use_weather_file_holidays_and_special_days": "Yes",
+      "use_weather_file_daylight_saving_period": "Yes",
+      "apply_weekend_holiday_rule": "Yes"
+    }
+  },
+  "Material": {
+    "Concrete 200mm": {"roughness": "MediumRough", "thickness": 0.2, "conductivity": 1.95, "density": 2400, "specific_heat": 900},
+    "Insulation 100mm": {"roughness": "Rough", "thickness": 0.1, "conductivity": 0.04, "density": 30, "specific_heat": 1400},
+    "Gypsum 13mm": {"roughness": "Smooth", "thickness": 0.013, "conductivity": 0.25, "density": 800, "specific_heat": 1090},
+    "Roof Membrane": {"roughness": "Rough", "thickness": 0.01, "conductivity": 0.17, "density": 1100, "specific_heat": 1460}
+  },
+  "WindowMaterial:SimpleGlazingSystem": {
+    "DoublePane LowE": {"u_factor": 1.9, "solar_heat_gain_coefficient": 0.35, "visible_transmittance": 0.6}
+  },
+  "Construction": {
+    "ExtWall": {"outside_layer": "Concrete 200mm", "layer_2": "Insulation 100mm", "layer_3": "Gypsum 13mm"},
+    "IntWall": {"outside_layer": "Gypsum 13mm", "layer_2": "Gypsum 13mm"},
+    "Roof": {"outside_layer": "Roof Membrane", "layer_2": "Insulation 100mm", "layer_3": "Concrete 200mm"},
+    "Floor": {"outside_layer": "Concrete 200mm"},
+    "Window": {"outside_layer": "DoublePane LowE"}
+  },
+  "ScheduleTypeLimits": {
+    "Any Number": {"numeric_type": "Continuous"},
+    "Fraction": {"numeric_type": "Continuous", "unit_type": "Dimensionless", "lower_limit_value": 0.0, "upper_limit_value": 1.0},
+    "On/Off": {"numeric_type": "Discrete", "unit_type": "Dimensionless", "lower_limit_value": 0.0, "upper_limit_value": 1.0},
+    "Occupancy": {"numeric_type": "Continuous", "unit_type": "People/Person"},
+    "Temperature": {"unit_type": "Temperature"}
+  },
+  "Schedule:Constant": {
+    "CoolingSP_SCH": {
+      "schedule_type_limits_name": "Temperature",
+      "hourly_value": 24.0
+    },
+    "HeatingSP_SCH": {
+      "schedule_type_limits_name": "Temperature",
+      "hourly_value": 21.0
+    },
+    "MinOA_Frac_SCH": {
+      "schedule_type_limits_name": "Fraction",
+      "hourly_value": 0.3
+    },
+    "Lights_SCH": {
+      "schedule_type_limits_name": "Fraction",
+      "hourly_value": 1.0
+    },
+    "Equip_SCH": {
+      "schedule_type_limits_name": "Fraction",
+      "hourly_value": 1.0
+    }
+  },
+
+  "People": {
+    "People Core": {
+      "zone_or_zonelist_name": "ZN Core Typical",
+      "number_of_people_schedule_name": "Occ-Workday",
+      "number_of_people_calculation_method": "People/Area",
+      "people_per_floor_area": 0.08,
+      "activity_level_schedule_name": "Any Number"
+    },
+    "People Perimeter": {
+      "zone_or_zonelist_name": "ZN Perim N Typical",
+      "number_of_people_schedule_name": "Occ-Workday",
+      "number_of_people_calculation_method": "People/Area",
+      "people_per_floor_area": 0.06,
+      "activity_level_schedule_name": "Any Number"
+    }
+  },
+  "Lights": {
+    "Lights Typical": {
+      "zone_or_zonelist_name": "ZNList Typical",
+      "schedule_name": "Lights-Workday",
+      "design_level_calculation_method": "Watts/Area",
+      "watts_per_zone_floor_area": 10.0
+    }
+  },
+  "ElectricEquipment": {
+    "Plugs Typical": {
+      "zone_or_zonelist_name": "ZNList Typical",
+      "schedule_name": "Equip-Workday",
+      "design_level_calculation_method": "Watts/Area",
+      "watts_per_zone_floor_area": 12.0
+    }
+  },
+  "DesignSpecification:OutdoorAir": {
+    "DSOA Office": {
+      "outdoor_air_method": "Sum",
+      "outdoor_air_flow_per_person": 0.0094,
+      "outdoor_air_flow_per_zone_floor_area": 0.0008
+    }
+  },
+  "Zone": {
+    "ZN Core Typical": {"direction_of_relative_north": 0.0, "x_origin": 0.0, "y_origin": 0.0, "z_origin": 0.0, "type": 1, "multiplier": 40, "ceiling_height": 3.0, "volume": 3600.0},
+    "ZN Perim N Typical": {"multiplier": 40},
+    "ZN Perim S Typical": {"multiplier": 40},
+    "ZN Perim E Typical": {"multiplier": 40},
+    "ZN Perim W Typical": {"multiplier": 40},
+    "ZN Lobby Ground": {"multiplier": 1},
+    "ZN Mechanical": {"multiplier": 1},
+    "ZN Penthouse": {"multiplier": 1}
+  },
+  "ZoneList": {
+    "ZNList Typical": {"zones": ["ZN Core Typical", "ZN Perim N Typical", "ZN Perim S Typical", "ZN Perim E Typical", "ZN Perim W Typical"]}
+  },
+  "ZoneInfiltration:DesignFlowRate": {
+    "Inf Typical": {
+      "zone_or_zonelist_name": "ZNList Typical",
+      "design_fan_flow_rate": 0.5,
+      "schedule_name": "On/Off"
+    }
+  },
+  "ThermostatSetpoint:DualSetpoint": {
+    "TZ-Setpoints": {
+      "heating_setpoint_temperature_schedule_name": "HeatingSP_SCH",
+      "cooling_setpoint_temperature_schedule_name": "CoolingSP_SCH"
+    }
+  },
+  "ZoneControl:Thermostat": {
+    "Thermostat Typical": {"zone_or_zonelist_name": "ZNList Typical", "control_type_schedule_name": "On/Off", "control_1_object_type": "ThermostatSetpoint:DualSetpoint", "control_1_name": "TZ-Setpoints"}
+  },
+  "BuildingSurface:Detailed": {
+    "Core North Wall": {"surface_type": "Wall", "construction_name": "ExtWall", "zone_name": "ZN Core Typical", "outside_boundary_condition": "Outdoors", "sun_exposure": "SunExposed", "wind_exposure": "WindExposed", "vertices": [[0,0,3],[0,0,0],[30,0,0],[30,0,3]]},
+    "Core South Wall": {"surface_type": "Wall", "construction_name": "ExtWall", "zone_name": "ZN Core Typical", "outside_boundary_condition": "Outdoors", "sun_exposure": "SunExposed", "wind_exposure": "WindExposed", "vertices": [[0,30,3],[30,30,3],[30,30,0],[0,30,0]]},
+    "Core East Wall":  {"surface_type": "Wall", "construction_name": "ExtWall", "zone_name": "ZN Core Typical", "outside_boundary_condition": "Outdoors", "sun_exposure": "SunExposed", "wind_exposure": "WindExposed", "vertices": [[30,0,3],[30,0,0],[30,30,0],[30,30,3]]},
+    "Core West Wall":  {"surface_type": "Wall", "construction_name": "ExtWall", "zone_name": "ZN Core Typical", "outside_boundary_condition": "Outdoors", "sun_exposure": "SunExposed", "wind_exposure": "WindExposed", "vertices": [[0,0,3],[0,30,3],[0,30,0],[0,0,0]]},
+    "Core Floor":     {"surface_type": "Floor", "construction_name": "Floor",   "zone_name": "ZN Core Typical", "outside_boundary_condition": "Adiabatic", "vertices": [[0,0,0],[0,30,0],[30,30,0],[30,0,0]]},
+    "Core Ceiling":   {"surface_type": "Roof",  "construction_name": "Roof",    "zone_name": "ZN Core Typical", "outside_boundary_condition": "Adiabatic", "sun_exposure": "SunExposed", "wind_exposure": "WindExposed", "vertices": [[0,0,3],[30,0,3],[30,30,3],[0,30,3]]}
+  },
+  "FenestrationSurface:Detailed": {
+    "Core N Window": {"surface_type": "Window", "construction_name": "Window", "building_surface_name": "Core North Wall", "vertices": [[3,0,2.2],[3,0,0.8],[27,0,0.8],[27,0,2.2]]},
+    "Core S Window": {"surface_type": "Window", "construction_name": "Window", "building_surface_name": "Core South Wall", "vertices": [[3,30,2.2],[27,30,2.2],[27,30,0.8],[3,30,0.8]]}
+  },
+  "HVACTemplate:Thermostat": {
+    "TZ Thermostat": {"heating_setpoint_schedule_name": "Heating Setpoint Winter", "cooling_setpoint_schedule_name": "Cooling Setpoint Summer"}
+  },
+  "HVACTemplate:Zone:VAV": {
+    "ZN Core Typical VAV": {
+      "zone_name": "ZN Core Typical",
+      "template_thermostat_name": "TZ Thermostat",
+      "design_specification_outdoor_air_object_name": "DSOA Office",
+      "supply_air_maximum_flow_rate": "AutoSize",
+      "zone_cooling_design_supply_air_temperature": 13.0,
+      "zone_heating_design_supply_air_temperature": 40.0,
+      "reheat_coil_type": "HotWater"
+    },
+    "ZN Perim N VAV": {"zone_name": "ZN Perim N Typical", "template_thermostat_name": "TZ Thermostat", "design_specification_outdoor_air_object_name": "DSOA Office"},
+    "ZN Perim S VAV": {"zone_name": "ZN Perim S Typical", "template_thermostat_name": "TZ Thermostat", "design_specification_outdoor_air_object_name": "DSOA Office"},
+    "ZN Perim E VAV": {"zone_name": "ZN Perim E Typical", "template_thermostat_name": "TZ Thermostat", "design_specification_outdoor_air_object_name": "DSOA Office"},
+    "ZN Perim W VAV": {"zone_name": "ZN Perim W Typical", "template_thermostat_name": "TZ Thermostat", "design_specification_outdoor_air_object_name": "DSOA Office"}
+  },
+  "HVACTemplate:System:VAV": {
+    "Main VAV System": {
+      "system_availability_schedule_name": "On/Off",
+      "supply_fan_placement": "DrawThrough",
+      "supply_fan_total_efficiency": 0.65,
+      "supply_fan_delta_pressure": 1000.0,
+      "cooling_coil_type": "ChilledWater",
+      "heating_coil_type": "HotWater",
+      "economizer_type": "DifferentialEnthalpy",
+      "return_fan": "Yes",
+      "night_cycle_control": "StayOff",
+      "supply_air_temperature_method": "Reset",
+      "cooling_design_supply_air_temperature": 13.0,
+      "heating_design_supply_air_temperature": 40.0,
+      "minimum_outdoor_air_schedule_name": "MinOA_Frac_SCH"
+    }
+  },
+
+  "HVACTemplate:Plant:ChilledWater": {
+    "CHW Plant": {
+      "chiller_plant_operation_scheme_type": "Default",
+      "design_loop_exit_temperature": 7.0,
+      "design_loop_design_temperature_difference": 6.0,
+      "chilled_water_pump_configuration": "VariablePrimaryNoSecondary"
+    }
+  },
+  "HVACTemplate:Plant:HotWater": {
+    "HW Plant": {
+      "boiler_type": "Condensing",
+      "design_loop_exit_temperature": 60.0,
+      "design_loop_design_temperature_difference": 11.0
+    }
+  },
+  "Output:Variable": {
+    "Zone Mean Air Temperature": {"key_value": "*", "variable_name": "Zone Mean Air Temperature", "reporting_frequency": "Detailed"},
+    "Facility Total HVAC Electricity Demand Rate": {"key_value": "Whole Building", "variable_name": "Facility Total HVAC Electricity Demand Rate", "reporting_frequency": "Hourly"},
+    "Zone Air System Sensible Heating Energy": {"key_value": "*", "variable_name": "Zone Air System Sensible Heating Energy", "reporting_frequency": "Hourly"},
+    "Zone Air System Sensible Cooling Energy": {"key_value": "*", "variable_name": "Zone Air System Sensible Cooling Energy", "reporting_frequency": "Hourly"}
+  },
+  "Output:Meter": {
+    "Electricity:Facility": {"name": "Electricity:Facility", "reporting_frequency": "Hourly"}
+  },
+  "Output:SQLite": {
+    "SQLite Output": {"option_type": "SimpleAndTabular"}
+  },
+  "Output:Diagnostics": {
+    "Diagnostics": {"key_1": "DisplayExtraWarnings"}
+  }
+}

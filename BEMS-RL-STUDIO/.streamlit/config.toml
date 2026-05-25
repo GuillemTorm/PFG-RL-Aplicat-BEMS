@@ -1,0 +1,15 @@
+[client]
+showSidebarNavigation = false
+
+[theme]
+primaryColor = "#5f54f9"
+backgroundColor = "#eef2fb"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#17233c"
+font = "sans serif"
+showSidebarBorder = false
+
+[theme.sidebar]
+backgroundColor = "#12192f"
+secondaryBackgroundColor = "#12192f"
+textColor = "#eef3ff"

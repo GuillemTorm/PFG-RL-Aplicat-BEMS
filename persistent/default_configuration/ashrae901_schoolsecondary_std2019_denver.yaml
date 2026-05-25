@@ -1,0 +1,182 @@
+action_space: gym.spaces.Box(low=0, high=1, shape=(1,))
+actuators:
+  actuator_0:
+    element_type: ZoneControl:Thermostat
+    value_type: Temperature
+    variable_name: AirLoopHVAC:ControllerList
+  actuator_1:
+    element_type: ZoneControl:Thermostat
+    value_type: Temperature
+    variable_name: Controller:MechanicalVentilation
+  actuator_2:
+    element_type: ZoneControl:Thermostat
+    value_type: Temperature
+    variable_name: Controller:OutdoorAir
+  actuator_3:
+    element_type: ZoneControl:Thermostat
+    value_type: Temperature
+    variable_name: Controller:WaterCoil
+  actuator_4:
+    element_type: ZoneControl:Thermostat
+    value_type: Temperature
+    variable_name: EnergyManagementSystem:Actuator
+building_file: ASHRAE901_SchoolSecondary_STD2019_Denver.epJSON
+context: {}
+id_base: ashrae901_schoolsecondary_std2019_denver
+max_ep_store: 3
+meters:
+  meter_0: Chiller:Electric:EIR
+  meter_1: ElectricEquipment
+  meter_2: ElectricLoadCenter:Transformer
+  meter_3: Meter:Custom
+  meter_4: Meter:CustomDecrement
+  meter_5: Output:Meter:MeterFileOnly
+reward: sinergym.utils.rewards:LinearReward
+reward_kwargs:
+  energy_variables:
+  - Chiller:Electric:EIR
+  - ElectricEquipment
+  - ElectricLoadCenter:Transformer
+  - Meter:Custom
+  - Meter:CustomDecrement
+  - Output:Meter:MeterFileOnly
+  energy_weight: 0.5
+  lambda_energy: 0.0001
+  lambda_temperature: 1.0
+  range_comfort_summer:
+  - 23.0
+  - 26.0
+  range_comfort_winter:
+  - 20.0
+  - 23.5
+  summer_final:
+  - 9
+  - 30
+  summer_start:
+  - 6
+  - 1
+  temperature_variables:
+  - AirLoopHVAC:ZoneMixer
+  - AirLoopHVAC:ZoneSplitter
+  - BuildingSurface:Detailed
+  - DesignSpecification:ZoneAirDistribution
+  - Fan:ZoneExhaust
+  - FenestrationSurface:Detailed
+  - Output:Surfaces:Drawing
+  - Output:Surfaces:List
+  - SetpointManager:SingleZone:Cooling
+  - SetpointManager:SingleZone:Heating
+  - Sizing:Zone
+  - SurfaceConvectionAlgorithm:Inside
+  - SurfaceConvectionAlgorithm:Outside
+  - Zone
+  - ZoneControl:Thermostat
+  - ZoneHVAC:AirDistributionUnit
+  - ZoneHVAC:EquipmentConnections
+  - ZoneHVAC:EquipmentList
+  - ZoneInfiltration:DesignFlowRate
+time_variables:
+- month
+- day_of_month
+- hour
+variables:
+  AirLoopHVAC:ZoneMixer:
+    keys:
+    - '*'
+    variable_names:
+    - AirLoopHVAC:ZoneMixer
+  AirLoopHVAC:ZoneSplitter:
+    keys:
+    - '*'
+    variable_names:
+    - AirLoopHVAC:ZoneSplitter
+  BuildingSurface:Detailed:
+    keys:
+    - '*'
+    variable_names:
+    - BuildingSurface:Detailed
+  DesignSpecification:ZoneAirDistribution:
+    keys:
+    - '*'
+    variable_names:
+    - DesignSpecification:ZoneAirDistribution
+  Fan:ZoneExhaust:
+    keys:
+    - '*'
+    variable_names:
+    - Fan:ZoneExhaust
+  FenestrationSurface:Detailed:
+    keys:
+    - '*'
+    variable_names:
+    - FenestrationSurface:Detailed
+  Output:Surfaces:Drawing:
+    keys:
+    - '*'
+    variable_names:
+    - Output:Surfaces:Drawing
+  Output:Surfaces:List:
+    keys:
+    - '*'
+    variable_names:
+    - Output:Surfaces:List
+  SetpointManager:SingleZone:Cooling:
+    keys:
+    - '*'
+    variable_names:
+    - SetpointManager:SingleZone:Cooling
+  SetpointManager:SingleZone:Heating:
+    keys:
+    - '*'
+    variable_names:
+    - SetpointManager:SingleZone:Heating
+  Sizing:Zone:
+    keys:
+    - '*'
+    variable_names:
+    - Sizing:Zone
+  SurfaceConvectionAlgorithm:Inside:
+    keys:
+    - '*'
+    variable_names:
+    - SurfaceConvectionAlgorithm:Inside
+  SurfaceConvectionAlgorithm:Outside:
+    keys:
+    - '*'
+    variable_names:
+    - SurfaceConvectionAlgorithm:Outside
+  Zone:
+    keys:
+    - '*'
+    variable_names:
+    - Zone
+  ZoneControl:Thermostat:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneControl:Thermostat
+  ZoneHVAC:AirDistributionUnit:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneHVAC:AirDistributionUnit
+  ZoneHVAC:EquipmentConnections:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneHVAC:EquipmentConnections
+  ZoneHVAC:EquipmentList:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneHVAC:EquipmentList
+  ZoneInfiltration:DesignFlowRate:
+    keys:
+    - '*'
+    variable_names:
+    - ZoneInfiltration:DesignFlowRate
+weather_specification:
+  keys:
+  - default
+  weather_files:
+  - AUS_NSW.Sydney.947670_IWEC.epw
