@@ -434,14 +434,8 @@ else:
 
     st.divider()
 
-    render_interaction_section(
-        "Observació actual",
-        "Estat de l'entorn",
-        "Mostra els valors físics disponibles a la darrera observació per facilitar la lectura abans de decidir la propera acció.",
-    )
-
     # Bloc d'observacions actuals.
-    st.subheader("Observació actual (valors físics reals)")
+    st.subheader("Observació actual")
 
     obs_vars = st.session_state.get("ix_observation_variables") or get_runtime_observation_variables(
         core_env=core_env,
@@ -467,13 +461,6 @@ else:
         st.write(display_obs)
 
     st.divider()
-
-    # Bloc d'execució d'accions.
-    render_interaction_section(
-        "Accions",
-        "Agent o manual",
-        "Escull si vols delegar la decisió a la política carregada o fixar manualment els valors aplicats al simulador.",
-    )
 
     # Selecció de l'acció a aplicar al pas següent.
     st.subheader("Acció")
@@ -584,13 +571,8 @@ else:
 
     # Resum ràpid de KPIs del pas actual.
     if len(st.session_state.ix_history) > 0:
-        render_interaction_section(
-            "Dashboard principal",
-            "Indicadors",
-            "Resumeix l'estat recent de la simulació amb setpoints, temperatures, consum i confort a partir de l'històric disponible.",
-        )
         st.divider()
-        st.subheader("Dashboard principal (estat actual)")
+        st.subheader("Estat actual")
 
         # Agafem només els dos últims passos per poder calcular deltes sense carregar
         # tot l'històric a cada rerun.
@@ -712,13 +694,37 @@ else:
 
                     if active_range[0] <= current_temp <= active_range[1]:
                         # Missatge confort correcte
-                        st.success(f"✅ Dins el Rang de Confort ({active_range[0]}°C a {active_range[1]}°C)")
+                        st.markdown(
+                            (
+                                "<div style='padding:0.78rem 1rem;border-radius:8px;"
+                                "background:#f0fdf4;color:#166534;font-weight:700;'>"
+                                f"Dins el Rang de Confort ({active_range[0]}°C a {active_range[1]}°C)"
+                                "</div>"
+                            ),
+                            unsafe_allow_html=True,
+                        )
                     elif current_temp < active_range[0]:
                         # Error confort fred
-                        st.error(f"❄️ Massa Fred (Objectiu: {active_range[0]}°C a {active_range[1]}°C)")
+                        st.markdown(
+                            (
+                                "<div style='padding:0.78rem 1rem;border-radius:8px;"
+                                "background:#eff6ff;color:#1d4ed8;font-weight:700;'>"
+                                f"Massa Fred (Objectiu: {active_range[0]}°C a {active_range[1]}°C)"
+                                "</div>"
+                            ),
+                            unsafe_allow_html=True,
+                        )
                     else:
                         # Error confort calor
-                        st.error(f"🔥 Massa Calor (Objectiu: {active_range[0]}°C a {active_range[1]}°C)")
+                        st.markdown(
+                            (
+                                "<div style='padding:0.78rem 1rem;border-radius:8px;"
+                                "background:#fef2f2;color:#b91c1c;font-weight:700;'>"
+                                f"Massa Calor (Objectiu: {active_range[0]}°C a {active_range[1]}°C)"
+                                "</div>"
+                            ),
+                            unsafe_allow_html=True,
+                        )
             else:
                 # Avís confort no calculable
                 st.info("No es pot calcular el confort (Sense Temperatura Interior)")
@@ -758,5 +764,3 @@ else:
                     f"**Insatisfacció (PPD):** <span class='{ppd_class}'>{val_ppd:.1f}%</span>",
                     unsafe_allow_html=True,
                 )
-            else:
-                st.write("Variables PMV/PPD no disponibles en aquest entorn.")
