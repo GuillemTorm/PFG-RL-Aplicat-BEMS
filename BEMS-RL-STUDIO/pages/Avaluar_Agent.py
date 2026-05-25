@@ -74,7 +74,10 @@ def render_evaluation_runtime(runtime: dict[str, object]) -> None:
     """Mostra el progrés i el resultat de l'avaluació activa."""
 
     render_section_title("Estat de l'avaluació")
-    render_runtime_progress(runtime, progress_label="Progrés")
+    display_runtime = dict(runtime)
+    if str(display_runtime.get("status") or "").strip().startswith("Passos:"):
+        display_runtime["status"] = ""
+    render_runtime_progress(display_runtime, progress_label="Progrés", freeze_from_result=True)
 
     if runtime.get("cancel_requested") and runtime.get("running"):
         # Avís cancel·lació avaluació
