@@ -19,18 +19,6 @@ INTRODUCTION_TEXT = (
     "Benvingut a BEMS-RL STUDIO, una interfície gràfica per treballar "
     "amb Reinforcement Learning en simulacions energètiques d'edificis."
 )
-CAPABILITIES = (
-    "Afegir nous entorns amb edificis i meteorologia.",
-    "Visualitzar i inspeccionar els entorns disponibles abans de treballar-hi.",
-    "Entrenar agents d'Aprenentatge per Reforç en un entorn Eplus personalitzat.",
-    "Simular entorns energètics per validar comportaments i condicions de partida.",
-    "Avaluar el comportament del teu agent.",
-    "Interaccionar amb agents entrenats mitjançant el control en viu.",
-    "Explorar resultats amb dashboards i gràfics.",
-    "Gestionar fitxers, execucions, models, climes i entorns del projecte.",
-    "Analitzar fitxers climàtics EPW amb resum, patrons anuals i roses dels vents.",
-    "Consultar el centre d'ajuda per entendre el flux de treball de l'aplicació.",
-)
 NAVIGATION_HINT = "Utilitza el menú lateral per accedir a cada secció."
 RESOURCES_DIR = Path(__file__).resolve().parent / "resources"
 ENERGYPLUS_LOGO_PATH = RESOURCES_DIR / "energyplus-logo.png"
@@ -121,38 +109,6 @@ def render_navigation_panel() -> None:
     )
 
 
-def render_capability_card(index: int, capability: str) -> None:
-    """Crea una targeta de funcionalitat."""
-
-    # Targeta funcionalitat home
-    st.markdown(
-        f"""
-        <section class="feature-card">
-            <div class="feature-kicker">Funció {index:02d}</div>
-            <p class="feature-copy">{escape(capability)}</p>
-        </section>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-def render_capability_grid() -> None:
-    """Organitza les funcionalitats en files de tres targetes alineades."""
-
-    row_size = 3
-    for row_start in range(0, len(CAPABILITIES), row_size):
-        row_items = CAPABILITIES[row_start : row_start + row_size]
-        # Columnes funcionalitats
-        row_columns = st.columns(row_size, gap="large")
-        for column, capability_index, capability in zip(
-            row_columns,
-            range(row_start + 1, row_start + len(row_items) + 1),
-            row_items,
-        ):
-            with column:
-                render_capability_card(capability_index, capability)
-
-
 def render_organization_footer() -> None:
     """Afegeix el bloc informatiu final."""
 
@@ -191,13 +147,6 @@ def render_home_page() -> None:
     with navigation_col:
         render_navigation_panel()
 
-    # Separador home
-    st.markdown("<div class='studio-spacer-115'></div>", unsafe_allow_html=True)
-    # Titol funcionalitats
-    st.markdown('<h2 class="section-title">Què pots fer?</h2>', unsafe_allow_html=True)
-    render_capability_grid()
-    # Separador funcionalitats
-    st.markdown('<div class="home-features-gap"></div>', unsafe_allow_html=True)
     render_organization_footer()
 
 

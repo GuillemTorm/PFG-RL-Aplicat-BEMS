@@ -9,9 +9,27 @@ from page_styles.theme import inject_studio_theme
 
 HOME_CSS = """
 <style>
+    /* Hero home */
+    .home-hero {
+        margin-bottom: 1.8rem;
+    }
+
     /* Panell superior home */
     .home-top-panel {
         min-height: 15rem;
+        padding: 1.35rem 1.4rem;
+    }
+
+    /* Kicker panells home */
+    .home-panel .panel-kicker,
+    .footer-card .panel-kicker {
+        margin-bottom: 0.82rem;
+    }
+
+    /* Titols panells home */
+    .home-panel .panel-title,
+    .footer-card .footer-title {
+        margin-bottom: 0.62rem;
     }
 
     /* Targeta estat EnergyPlus */
@@ -36,33 +54,10 @@ HOME_CSS = """
         margin-top: 0.85rem;
     }
 
-    /* Targeta funcionalitat */
-    .feature-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        height: 100%;
-        min-height: 12.5rem;
-        padding: 1.15rem 1.2rem 1.2rem;
-        margin-bottom: 1rem;
-    }
-
-    /* Text funcionalitat */
-    .feature-copy {
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.72;
-    }
-
     /* Targeta peu home */
     .footer-card {
-        margin-top: 2.25rem;
+        margin-top: 3.1rem;
         padding: 1.5rem 1.6rem;
-    }
-
-    /* Separador funcionalitats */
-    .home-features-gap {
-        height: 0.95rem;
     }
 
     /* Home responsive */
@@ -77,17 +72,20 @@ HOME_CSS = """
             width: 4rem;
         }
 
-        .feature-card,
+        .home-hero {
+            margin-bottom: 1.35rem;
+        }
+
+        .home-top-panel {
+            padding: 1.2rem 1.1rem;
+        }
+
         .footer-card {
             padding: 1.15rem 1.1rem;
         }
 
-        .feature-card {
-            min-height: auto;
-        }
-
         .footer-card {
-            margin-top: 1.55rem;
+            margin-top: 2.2rem;
         }
     }
 </style>
