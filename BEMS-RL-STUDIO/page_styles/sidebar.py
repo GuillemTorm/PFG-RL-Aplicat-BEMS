@@ -188,6 +188,55 @@ SIDEBAR_CSS = """
         color: #eef3ff;
     }
 
+    /* Bloc suport sidebar */
+    [data-testid="stSidebar"] .studio-sidebar-support {
+        margin-top: 1.45rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Titol suport sidebar */
+    [data-testid="stSidebar"] .studio-sidebar-support-title {
+        color: rgba(123, 113, 255, 0.96);
+        font-family: "Consolas", "Bahnschrift", monospace;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+    }
+
+    /* Contacte suport sidebar */
+    [data-testid="stSidebar"] .studio-sidebar-support-contact {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.2rem;
+        margin-top: 0.55rem;
+        color: rgba(238, 243, 255, 0.86);
+        font-size: 0.84rem;
+        line-height: 1.35;
+    }
+
+    [data-testid="stSidebar"] .studio-sidebar-support-name {
+        font-weight: 700;
+    }
+
+    /* Correu suport sidebar */
+    [data-testid="stSidebar"] .studio-sidebar-support-mail {
+        display: inline;
+        margin-top: 0;
+        color: rgba(238, 243, 255, 0.72) !important;
+        font-size: inherit;
+        line-height: inherit;
+        text-decoration: none !important;
+        overflow-wrap: anywhere;
+    }
+
+    [data-testid="stSidebar"] .studio-sidebar-support-mail:hover {
+        color: #ffffff !important;
+        text-decoration: underline !important;
+    }
+
     /* Sidebar responsive */
     @media (max-width: 900px) {
         [data-testid="stSidebar"][aria-expanded="true"],

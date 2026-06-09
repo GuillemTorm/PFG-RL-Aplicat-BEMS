@@ -120,6 +120,7 @@ intersphinx_mapping = {
     "pandas": ("https://pandas.pydata.org/docs", None),
     "plotly": ("https://plotly.com/python-api-reference", None),
 }
+intersphinx_timeout = 5
 
 autosectionlabel_prefix_document = True
 graphviz_output_format = "svg"

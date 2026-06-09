@@ -2,11 +2,17 @@
 
 from __future__ import annotations
 
+from html import escape
+
 import streamlit as st
 from page_styles.sidebar import inject_sidebar_shell_styles
 
 
 APP_NAME = "BEMS-RL STUDIO"
+SUPPORT_CONTACT = {
+    "name": "Guillem Torm",
+    "email": "guillem@suno.cat",
+}
 
 SIDEBAR_SECTIONS: tuple[tuple[str, str, tuple[tuple[str, str, str], ...]], ...] = (
     (
@@ -29,13 +35,6 @@ SIDEBAR_SECTIONS: tuple[tuple[str, str, tuple[tuple[str, str, str], ...]], ...] 
         (
             ("pages/Gestionar_Arxius.py", "Arxius", ":material/folder_open:"),
             ("pages/Visor_Climes_EPW.py", "Visor EPW", ":material/cloud:"),
-        ),
-    ),
-    (
-        "SUPORT",
-        "Guies i ajuda",
-        (
-            ("pages/Ajuda.py", "Centre d'Ajuda", ":material/support_agent:"),
         ),
     ),
 )
@@ -78,6 +77,8 @@ def render_studio_sidebar() -> None:
                 # Enllaç de pàgina a la barra lateral
                 st.page_link(page_path, label=label, icon=icon)
 
+        _render_support_footer()
+
 
 def _render_section_header(title: str, copy_text: str) -> None:
     """Crea la capçalera de la secció."""
@@ -86,6 +87,28 @@ def _render_section_header(title: str, copy_text: str) -> None:
         f"""
         <div class="studio-sidebar-section">{title}</div>
         <div class="studio-sidebar-section-copy">{copy_text}</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def _render_support_footer() -> None:
+    """Mostra el contacte al final de la barra lateral."""
+
+    support_name = SUPPORT_CONTACT["name"]
+    support_email = SUPPORT_CONTACT["email"]
+    # Bloc suport sidebar
+    st.markdown(
+        f"""
+        <div class="studio-sidebar-support">
+            <div class="studio-sidebar-support-title">Suport</div>
+            <div class="studio-sidebar-support-contact">
+                <span class="studio-sidebar-support-name">{escape(support_name)}:</span>
+                <a class="studio-sidebar-support-mail" href="mailto:{escape(support_email)}">
+                    {escape(support_email)}
+                </a>
+            </div>
+        </div>
         """,
         unsafe_allow_html=True,
     )
