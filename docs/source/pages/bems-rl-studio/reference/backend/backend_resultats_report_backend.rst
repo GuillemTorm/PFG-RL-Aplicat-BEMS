@@ -80,7 +80,7 @@ _build_report_figures
 
 .. code-block:: text
 
-   Crea xifres gràfics incloses en un informe de resultats exportat per al flux Studio.
+   Prepara les figures incloses en un informe de resultats exportat.
 
 _render_report_document
 ~~~~~~~~~~~~~~~~~~~~~~~

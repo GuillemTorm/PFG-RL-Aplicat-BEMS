@@ -16,3 +16,4 @@ Page-level code parsed statically so documentation builds never execute Streamli
    pages_Simular_Entorn
    pages_Visor_Climes_EPW
    pages___init__
+

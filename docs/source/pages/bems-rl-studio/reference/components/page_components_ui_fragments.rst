@@ -218,12 +218,12 @@ _copy_html
 
 .. code-block:: text
 
-   No docstring available yet.
+   Escapa text o paràgrafs per inserir-los dins d'un bloc HTML segur.
 
 _elapsed_seconds
 ~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/ui_fragments.py:271``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/ui_fragments.py:272``.
 
 .. code-block:: python
 
@@ -233,5 +233,5 @@ _elapsed_seconds
 
 .. code-block:: text
 
-   No docstring available yet.
+   Calcula segons transcorreguts a partir de l'estat runtime o del resultat final.
 

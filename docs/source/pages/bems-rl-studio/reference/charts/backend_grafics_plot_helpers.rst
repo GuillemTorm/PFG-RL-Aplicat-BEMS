@@ -128,5 +128,5 @@ _default_hovertemplate
 
 .. code-block:: text
 
-   No docstring available yet.
+   Construeix el tooltip Plotly per defecte amb unitats opcionals.
 

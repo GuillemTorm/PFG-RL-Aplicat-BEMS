@@ -10,13 +10,20 @@ import streamlit as st
 SIDEBAR_CSS = """
 <style>
     /* Botons col·lapse sidebar */
-    [data-testid="collapsedControl"],
-    [data-testid="stSidebarCollapseButton"],
-    button[kind="header"][aria-label*="sidebar" i],
-    button[kind="header"][aria-label*="barra lateral" i] {
-        display: none !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
+    [data-testid="stSidebarCollapseButton"] {
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button {
+        color: #eef3ff !important;
+        background: rgba(18, 25, 47, 0.88) !important;
+        border: 1px solid rgba(255, 255, 255, 0.10) !important;
+        border-radius: 999px !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button:hover {
+        background: rgba(255, 255, 255, 0.12) !important;
     }
 
     /* Fons sidebar */
@@ -27,9 +34,6 @@ SIDEBAR_CSS = """
     }
 
     /* Animacions sidebar */
-    [data-testid="stSidebar"],
-    [data-testid="stSidebar"] > div:first-child,
-    [data-testid="stSidebarContent"],
     [data-testid="stSidebar"] [data-testid="stPageLinkContainer"] a,
     [data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] {
         transition: none !important;
@@ -37,27 +41,18 @@ SIDEBAR_CSS = """
     }
 
     /* Amplada sidebar */
-    [data-testid="stSidebar"][aria-expanded="true"],
-    [data-testid="stSidebar"][aria-expanded="false"] {
+    [data-testid="stSidebar"][aria-expanded="true"] {
         min-width: 18rem !important;
         max-width: 18rem !important;
         width: 18rem !important;
-        transform: translateX(0) !important;
     }
 
     /* Amplada interior sidebar */
-    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child,
-    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
         width: 18rem !important;
         min-width: 18rem !important;
         max-width: 18rem !important;
         background: transparent;
-        transform: translateX(0) !important;
-    }
-
-    /* Sidebar plegada */
-    [data-testid="stSidebar"][aria-expanded="false"] {
-        margin-left: 0 !important;
     }
 
     /* Contenidor sidebar */
@@ -239,23 +234,16 @@ SIDEBAR_CSS = """
 
     /* Sidebar responsive */
     @media (max-width: 900px) {
-        [data-testid="stSidebar"][aria-expanded="true"],
-        [data-testid="stSidebar"][aria-expanded="false"] {
+        [data-testid="stSidebar"][aria-expanded="true"] {
             min-width: 15.5rem !important;
             max-width: 15.5rem !important;
             width: 15.5rem !important;
         }
 
-        [data-testid="stSidebar"][aria-expanded="true"] > div:first-child,
-        [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+        [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
             width: 15.5rem !important;
             min-width: 15.5rem !important;
             max-width: 15.5rem !important;
-        }
-
-        [data-testid="stSidebar"][aria-expanded="false"] + div,
-        [data-testid="stSidebar"][aria-expanded="false"] ~ section {
-            margin-left: 15.5rem !important;
         }
 
         [data-testid="stSidebarContent"] {

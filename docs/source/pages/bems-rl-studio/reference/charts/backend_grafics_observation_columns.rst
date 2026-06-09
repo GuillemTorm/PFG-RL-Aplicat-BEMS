@@ -43,7 +43,7 @@ find_first_available_column
 
 .. code-block:: text
 
-   Cerqueu la primera columna disponible.
+   Retorna la primera columna disponible dins la llista de candidats.
 
 normalize_observation_columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,7 +91,7 @@ convert_hvac_source_to_kwh
 
 .. code-block:: text
 
-   Convertir la font d'HVAC a kwh.
+   Converteix la font de consum HVAC a kWh.
 
 add_meter_kwh_columns
 ~~~~~~~~~~~~~~~~~~~~~

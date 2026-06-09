@@ -11,7 +11,7 @@ backend/grafics/control.py
 
 .. code-block:: text
 
-   Figures de control i acciÃ³ per a HVAC i pistes de terra radiant.
+   Figures de control i acció per a HVAC i terra radiant.
 
 .. contents:: In this file
    :local:
@@ -38,7 +38,7 @@ _mean_series
 
 .. code-block:: text
 
-   Retorna la mitjana numÃ¨rica per files per a les columnes seleccionades.
+   Retorna la mitjana numèrica per files de les columnes seleccionades.
 
 _add_radiant_control_trace
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,7 +68,7 @@ _pretty_action_name
 
 .. code-block:: text
 
-   Retorna una etiqueta de visualitzaciÃ³ per a una columna d'acciÃ³.
+   Retorna una etiqueta de visualització per a una columna d'acció.
 
 _add_agent_action_trace
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +83,7 @@ _add_agent_action_trace
 
 .. code-block:: text
 
-   Afegeix un rastre d'acciÃ³ a la figura d'acciÃ³ de diverses files.
+   Afegeix una traça d'acció a la figura de diverses files.
 
 make_radiant_control_plot
 ~~~~~~~~~~~~~~~~~~~~~~~~~

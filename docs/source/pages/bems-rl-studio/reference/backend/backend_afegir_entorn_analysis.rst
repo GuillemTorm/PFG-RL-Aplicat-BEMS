@@ -353,7 +353,7 @@ build_actuator_label
 
 .. code-block:: text
 
-   Crea una etiqueta de l'actuador per al flux Studio.
+   Crea una etiqueta llegible per a una categoria d'actuador.
 
 _build_actuator_option
 ~~~~~~~~~~~~~~~~~~~~~~

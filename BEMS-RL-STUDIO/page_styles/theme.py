@@ -80,11 +80,23 @@ def inject_studio_theme(*, max_width: int = 1220, hide_first_heading: bool = Fal
                 }}
 
                 /* Elements natius ocults */
-                div[data-testid="stToolbar"],
                 div[data-testid="stDecoration"],
                 div[data-testid="stStatusWidget"],
                 #MainMenu,
                 footer {{
+                    display: none !important;
+                }}
+
+                /* Barra superior Streamlit: necessària per reobrir la sidebar quan està plegada. */
+                div[data-testid="stToolbar"] {{
+                    display: flex !important;
+                    visibility: visible !important;
+                    pointer-events: auto !important;
+                }}
+
+                div[data-testid="stToolbarActions"],
+                div[data-testid="stAppDeployButton"],
+                span[data-testid="stMainMenu"] {{
                     display: none !important;
                 }}
 
@@ -111,7 +123,6 @@ def inject_studio_theme(*, max_width: int = 1220, hide_first_heading: bool = Fal
                 /* Targetes i panells */
                 [class*="-panel"],
                 [class*="-section-card"],
-                .feature-card,
                 .footer-card,
                 .artifact-card,
                 .resources-card,
@@ -197,7 +208,6 @@ def inject_studio_theme(*, max_width: int = 1220, hide_first_heading: bool = Fal
                 }}
 
                 /* Fons targeta */
-                .feature-card,
                 .footer-card,
                 .artifact-card,
                 .resources-card,
@@ -535,7 +545,6 @@ def inject_studio_theme(*, max_width: int = 1220, hide_first_heading: bool = Fal
 
                     [class*="-panel"],
                     [class*="-section-card"],
-                    .feature-card,
                     .footer-card,
                     .artifact-card,
                     .resources-card,

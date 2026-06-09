@@ -86,7 +86,7 @@ _tilt_azimuth_from_normal
 
 .. code-block:: text
 
-   Calculeu l'etiqueta d'inclinació, azimut i orientació cardinal a partir d'una normal de superfície.
+   Calcula inclinació, azimut i orientació cardinal a partir d'una normal de superfície.
 
    Retorna:
        inclinació: Angle des de l'horitzontal en graus (0 = pla).

@@ -25,7 +25,7 @@ pages/Afegir_Entorn.py
 Imports
 -------
 
-``backend``, ``importlib``, ``page_components``, ``page_styles``, ``pandas``, ``pathlib``, ``sidebar_nav``, ``streamlit``, ``subprocess``, ``typing``, ``yaml``
+``backend``, ``page_components``, ``page_styles``, ``pandas``, ``pathlib``, ``sidebar_nav``, ``streamlit``, ``subprocess``, ``typing``, ``yaml``
 
 Functions
 ---------
@@ -33,7 +33,7 @@ Functions
 render_add_environment_hero
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:59``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:31``.
 
 .. code-block:: python
 
@@ -48,7 +48,7 @@ render_add_environment_hero
 render_weather_source_selector
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:65``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:37``.
 
 .. code-block:: python
 
@@ -69,7 +69,7 @@ render_weather_source_selector
 format_current_schedule_range
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:98``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:61``.
 
 .. code-block:: python
 
@@ -90,7 +90,7 @@ format_current_schedule_range
 render_controller_selection_table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:118``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:81``.
 
 .. code-block:: python
 
@@ -115,7 +115,7 @@ render_controller_selection_table
 render_building_upload_card
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:178``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:141``.
 
 .. code-block:: python
 
@@ -133,7 +133,7 @@ render_building_upload_card
 render_weather_upload_card
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:201``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:164``.
 
 .. code-block:: python
 
@@ -154,7 +154,7 @@ render_weather_upload_card
 render_weather_variability_section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:270``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:233``.
 
 .. code-block:: python
 
@@ -173,7 +173,7 @@ render_weather_variability_section
 load_weather_temperature_preview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:308``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:271``.
 
 .. code-block:: python
 
@@ -198,7 +198,7 @@ load_weather_temperature_preview
 render_weather_temperature_preview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:332``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:295``.
 
 .. code-block:: python
 
@@ -217,7 +217,7 @@ render_weather_temperature_preview
 prepare_building_file
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:380``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:343``.
 
 .. code-block:: python
 
@@ -241,7 +241,7 @@ prepare_building_file
 load_or_run_training_analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:487``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:450``.
 
 .. code-block:: python
 
@@ -263,7 +263,7 @@ load_or_run_training_analysis
 render_environment_id_section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:509``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:472``.
 
 .. code-block:: python
 
@@ -286,7 +286,7 @@ render_environment_id_section
 render_controller_selection_section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:551``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:517``.
 
 .. code-block:: python
 
@@ -309,7 +309,7 @@ render_controller_selection_section
 render_action_space_section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:644``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:610``.
 
 .. code-block:: python
 
@@ -333,7 +333,7 @@ render_action_space_section
 render_registration_section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:705``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:671``.
 
 .. code-block:: python
 
@@ -362,7 +362,7 @@ render_registration_section
 main
 ~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:799``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Afegir_Entorn.py:765``.
 
 .. code-block:: python
 

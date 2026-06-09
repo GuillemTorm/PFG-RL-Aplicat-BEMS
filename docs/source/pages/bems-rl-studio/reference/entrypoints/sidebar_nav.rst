@@ -11,7 +11,7 @@ sidebar_nav.py
 
 .. code-block:: text
 
-   Shared sidebar navigation for BEMS-RL STUDIO.
+   Navegació lateral compartida de BEMS-RL STUDIO.
 
 .. contents:: In this file
    :local:
@@ -20,7 +20,7 @@ sidebar_nav.py
 Imports
 -------
 
-``__future__``, ``page_styles``, ``streamlit``
+``__future__``, ``html``, ``page_styles``, ``streamlit``
 
 Functions
 ---------
@@ -28,11 +28,11 @@ Functions
 configure_studio_page
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/sidebar_nav.py:44``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/sidebar_nav.py:43``.
 
 .. code-block:: python
 
-   def configure_studio_page(page_title: str, current_page: str, *, layout: str = "wide") -> None
+   def configure_studio_page(page_title: str, *, layout: str = "wide") -> None
 
 **Docstring**
 
@@ -43,22 +43,22 @@ configure_studio_page
 render_studio_sidebar
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/sidebar_nav.py:57``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/sidebar_nav.py:56``.
 
 .. code-block:: python
 
-   def render_studio_sidebar(current_page: str) -> None
+   def render_studio_sidebar() -> None
 
 **Docstring**
 
 .. code-block:: text
 
-   Mostra la navegació personalitzada de la barra lateral Streamlit a la UI de Streamlit.
+   Mostra la navegació personalitzada de la barra lateral de Streamlit.
 
 _render_section_header
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/sidebar_nav.py:92``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/sidebar_nav.py:83``.
 
 .. code-block:: python
 
@@ -69,4 +69,19 @@ _render_section_header
 .. code-block:: text
 
    Crea la capçalera de la secció.
+
+_render_support_footer
+~~~~~~~~~~~~~~~~~~~~~~
+
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/sidebar_nav.py:95``.
+
+.. code-block:: python
+
+   def _render_support_footer() -> None
+
+**Docstring**
+
+.. code-block:: text
+
+   Mostra el contacte al final de la barra lateral.
 

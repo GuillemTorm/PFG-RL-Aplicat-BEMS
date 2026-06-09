@@ -47,19 +47,19 @@ RewardClassRegistry
 
 .. code-block:: text
 
-   No docstring available yet.
+   Itera pels noms de recompenses disponibles sense carregar les classes.
 
 ``def __len__(self) -> int``
 **Method docstring**
 
 .. code-block:: text
 
-   No docstring available yet.
+   Retorna el nombre de recompenses registrades.
 
 ``def __getitem__(self, reward_name: str) -> Any``
 **Method docstring**
 
 .. code-block:: text
 
-   No docstring available yet.
+   Resol una classe de recompensa pel seu nom registrat.
 

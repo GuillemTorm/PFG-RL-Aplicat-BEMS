@@ -38,12 +38,12 @@ _chart_width
 
 .. code-block:: text
 
-   No docstring available yet.
+   Tradueix el flag antic de Streamlit al valor de width actual.
 
 render_location_map
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/mapa_backend.py:16``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/mapa_backend.py:17``.
 
 .. code-block:: python
 
@@ -60,7 +60,7 @@ render_location_map
 render_multipoint_map
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/mapa_backend.py:57``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/mapa_backend.py:58``.
 
 .. code-block:: python
 

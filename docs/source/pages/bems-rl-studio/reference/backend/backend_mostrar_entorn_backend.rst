@@ -138,7 +138,7 @@ summarize_pv
 
 .. code-block:: text
 
-   Calculeu mètriques agregades per als panells PV associats a les superfícies de l'edifici.
+   Calcula mètriques agregades dels panells PV associats a superfícies de l'edifici.
 
    Recompte de retorns, llista de noms de superfície actives, àrea total, inclinació mitjana i
    azimut mitjà. L'àrea i els angles són None quan no es troben superfícies coincidents.

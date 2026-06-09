@@ -23,7 +23,7 @@ pages/Avaluar_Agent.py
 Imports
 -------
 
-``__future__``, ``backend``, ``html``, ``page_components``, ``page_styles``, ``pathlib``, ``sidebar_nav``, ``streamlit``, ``time``
+``__future__``, ``backend``, ``html``, ``page_components``, ``page_styles``, ``pathlib``, ``sidebar_nav``, ``streamlit``
 
 Functions
 ---------
@@ -31,7 +31,7 @@ Functions
 _key
 ~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:42``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:41``.
 
 .. code-block:: python
 
@@ -46,7 +46,7 @@ _key
 render_metadata_grid
 ~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:46``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:45``.
 
 .. code-block:: python
 
@@ -61,7 +61,7 @@ render_metadata_grid
 render_evaluation_runtime
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:74``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:73``.
 
 .. code-block:: python
 
@@ -76,7 +76,7 @@ render_evaluation_runtime
 render_evaluation_runtime_frame
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:112``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Avaluar_Agent.py:114``.
 
 .. code-block:: python
 

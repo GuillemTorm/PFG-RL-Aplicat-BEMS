@@ -28,7 +28,7 @@ Functions
 ui_text
 ~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:27``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:26``.
 
 .. code-block:: python
 
@@ -43,7 +43,7 @@ ui_text
 build_active_month_axis
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:44``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:43``.
 
 .. code-block:: python
 
@@ -58,7 +58,7 @@ build_active_month_axis
 apply_figure_style
 ~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:61``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:60``.
 
 .. code-block:: python
 
@@ -73,7 +73,7 @@ apply_figure_style
 build_focus_timeseries_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:96``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:95``.
 
 .. code-block:: python
 
@@ -83,12 +83,12 @@ build_focus_timeseries_figure
 
 .. code-block:: text
 
-   Crea la figura de sèrie temporal agregada principal per a la variable EPW seleccionada per al flux Studio.
+   Crea la sèrie temporal agregada per a la variable EPW seleccionada.
 
 build_monthly_climate_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:116``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:115``.
 
 .. code-block:: python
 
@@ -98,12 +98,12 @@ build_monthly_climate_figure
 
 .. code-block:: text
 
-   Crea una figura mensual de comparació de temperatura i humitat per al flux Studio.
+   Crea la comparació mensual de temperatura i humitat.
 
 build_monthly_solar_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:168``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:167``.
 
 .. code-block:: python
 
@@ -113,12 +113,12 @@ build_monthly_solar_figure
 
 .. code-block:: text
 
-   Crea un gràfic de barres de radiació solar acumulada mensual per al flux Studio.
+   Crea el resum mensual de radiació solar acumulada.
 
 build_daily_temperature_band_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:201``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:200``.
 
 .. code-block:: python
 
@@ -128,12 +128,12 @@ build_daily_temperature_band_figure
 
 .. code-block:: text
 
-   Crea la figura de la banda de temperatura diària amb valors mínims, mitjans i màxims per al flux Studio.
+   Crea la banda diària de temperatura amb mínims, mitjanes i màxims.
 
 build_hourly_profile_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:239``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:238``.
 
 .. code-block:: python
 
@@ -143,12 +143,12 @@ build_hourly_profile_figure
 
 .. code-block:: text
 
-   Crea un perfil horari mitjà de temperatura, punt de rosada i humitat per al flux Studio.
+   Crea el perfil horari mitjà de temperatura, punt de rosada i humitat.
 
 build_heatmap_figure
 ~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:280``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:279``.
 
 .. code-block:: python
 
@@ -163,7 +163,7 @@ build_heatmap_figure
 build_annual_heatmap_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:305``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:304``.
 
 .. code-block:: python
 
@@ -178,7 +178,7 @@ build_annual_heatmap_figure
 build_comfort_radiation_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:385``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:384``.
 
 .. code-block:: python
 
@@ -188,12 +188,12 @@ build_comfort_radiation_figure
 
 .. code-block:: text
 
-   Crea un gràfic de radiació polar benefici-dany per a les orientacions de façana per al flux Studio.
+   Crea el mapa polar de radiació amb efectes de confort per orientació.
 
 build_monthly_wind_rose_grid_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:463``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/epw_figures.py:462``.
 
 .. code-block:: python
 

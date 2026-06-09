@@ -86,7 +86,7 @@ _load_comparison_data_cached
 
 .. code-block:: text
 
-   Carrega i emmagatzemeu a la memòria cau una comparació executada a l'estat de sessió Streamlit.
+   Carrega una comparació i la desa a la memòria cau de sessió.
 
 _cached_report_bytes
 ~~~~~~~~~~~~~~~~~~~~
@@ -131,12 +131,12 @@ _dashboard_tab_is_visible
 
 .. code-block:: text
 
-   No docstring available yet.
+   Decideix si una pestanya té dades suficients per aparèixer al dashboard.
 
 _render_dashboard_tab_content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:272``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:273``.
 
 .. code-block:: python
 
@@ -146,12 +146,12 @@ _render_dashboard_tab_content
 
 .. code-block:: text
 
-   No docstring available yet.
+   Pinta el contingut d'una pestanya de resultats segons la seva especificació.
 
 _render_report_export
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:298``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:300``.
 
 .. code-block:: python
 
@@ -166,7 +166,7 @@ _render_report_export
 _render_dashboard_tabs
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:359``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:361``.
 
 .. code-block:: python
 
@@ -181,7 +181,7 @@ _render_dashboard_tabs
 _build_dashboard_figures
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:376``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:378``.
 
 .. code-block:: python
 
@@ -196,7 +196,7 @@ _build_dashboard_figures
 _overlay_dashboard_figures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:470``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:472``.
 
 .. code-block:: python
 
@@ -211,7 +211,7 @@ _overlay_dashboard_figures
 _style_dashboard_figures
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:490``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:492``.
 
 .. code-block:: python
 
@@ -226,7 +226,7 @@ _style_dashboard_figures
 _kpi_delta_color
 ~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:509``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:511``.
 
 .. code-block:: python
 
@@ -241,7 +241,7 @@ _kpi_delta_color
 _render_kpis
 ~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:519``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:521``.
 
 .. code-block:: python
 
@@ -256,7 +256,7 @@ _render_kpis
 render_inline_dashboard
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:587``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/resultats_dashboard.py:589``.
 
 .. code-block:: python
 

@@ -101,7 +101,7 @@ build_wrapper_summary_rows
 
 .. code-block:: text
 
-   Crea files de resum de wrappers per al flux Studio.
+   Prepara les files de resum dels wrappers seleccionats.
 
 apply_training_wrappers
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -161,7 +161,7 @@ build_energy_cost_wrapper_reward_kwargs
 
 .. code-block:: text
 
-   Crea kwargs de recompensa del wrapper de costos energètics per al flux Studio.
+   Munta els kwargs del wrapper de costos energètics.
 
 build_wrapper_configs
 ~~~~~~~~~~~~~~~~~~~~~
@@ -176,5 +176,5 @@ build_wrapper_configs
 
 .. code-block:: text
 
-   Crea configuracions de wrappers per al flux Studio.
+   Munta la configuració dels wrappers d'entrenament.
 

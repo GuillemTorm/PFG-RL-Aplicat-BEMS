@@ -11,11 +11,11 @@ backend/grafics/kpis.py
 
 .. code-block:: text
 
-   KPI càlculs per a BEMS-RL Studio resums de resultats.
+   Càlculs de KPI per als resums de resultats de BEMS-RL Studio.
 
-   Aquest mòdul deriva mètriques operatives compactes a partir de l'observació normalitzada
-   dades, incloses les infraccions de confort, HVAC consum d'energia, cost energètic i seleccionats
-   resums de temperatura de la zona.
+   Aquest mòdul deriva mètriques operatives compactes a partir de les observacions
+   normalitzades: desviacions de confort, consum HVAC, cost energètic i resums de
+   temperatura de zona.
 
 .. contents:: In this file
    :local:
@@ -42,7 +42,7 @@ _normalize_name
 
 .. code-block:: text
 
-   Normalitzeu els noms de les zones perquè coincideixin amb les columnes de manera més tolerant.
+   Normalitza els noms de zona perquè coincideixin amb les columnes de manera més tolerant.
 
 _pick_zone_temperature_series
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,9 +87,9 @@ compute_kpis
 
 .. code-block:: text
 
-   Calculeu les targetes KPI mostrades al panell i exportades PDF.
+   Calcula les targetes KPI mostrades al panell i exportades a PDF.
 
    Els KPI de temperatura respecten la zona seleccionada. HVAC i els KPI de costos segueixen sent globals.
-   La infracció de comoditat es mostra amb una etiqueta d'abast explícita per a hores ocupades
+   La desviació de confort es mostra amb una etiqueta d'abast explícita per a hores ocupades
    les recompenses no es comparen amb una mètrica de totes les hores per accident.
 

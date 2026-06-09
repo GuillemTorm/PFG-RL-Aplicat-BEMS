@@ -28,7 +28,7 @@ Functions
 get_energyplus_logo_data_uri
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:40``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:28``.
 
 .. code-block:: python
 
@@ -43,7 +43,7 @@ get_energyplus_logo_data_uri
 detect_energyplus_status
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:51``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:39``.
 
 .. code-block:: python
 
@@ -58,7 +58,7 @@ detect_energyplus_status
 render_hero
 ~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:68``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:56``.
 
 .. code-block:: python
 
@@ -73,7 +73,7 @@ render_hero
 render_status_panel
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:84``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:72``.
 
 .. code-block:: python
 
@@ -88,7 +88,7 @@ render_status_panel
 render_navigation_panel
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:108``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:96``.
 
 .. code-block:: python
 
@@ -100,40 +100,10 @@ render_navigation_panel
 
    Dibuixa la pista de navegació lateral.
 
-render_capability_card
-~~~~~~~~~~~~~~~~~~~~~~
-
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:124``.
-
-.. code-block:: python
-
-   def render_capability_card(index: int, capability: str) -> None
-
-**Docstring**
-
-.. code-block:: text
-
-   Crea una targeta de funcionalitat.
-
-render_capability_grid
-~~~~~~~~~~~~~~~~~~~~~~
-
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:139``.
-
-.. code-block:: python
-
-   def render_capability_grid() -> None
-
-**Docstring**
-
-.. code-block:: text
-
-   Organitza les funcionalitats en files de tres targetes alineades.
-
 render_organization_footer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:156``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:112``.
 
 .. code-block:: python
 
@@ -148,7 +118,7 @@ render_organization_footer
 render_home_page
 ~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:178``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/Inici.py:134``.
 
 .. code-block:: python
 

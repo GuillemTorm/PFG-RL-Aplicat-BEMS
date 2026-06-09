@@ -11,7 +11,7 @@ backend/training_scripts.py
 
 .. code-block:: text
 
-   Genereu scripts d'ajuda d'entrenament reproduïbles per a les execucions BEMS-RL desades.
+   Scripts d'ajuda reproduïbles per a execucions BEMS-RL desades.
 
 .. contents:: In this file
    :local:
@@ -38,7 +38,7 @@ build_training_eval_script
 
 .. code-block:: text
 
-   Crea un petit script d'ajuda d'avaluació desat al costat d'una sessió d'entrenament per al flux Studio.
+   Crea un script breu d'avaluació al costat de la sessió d'entrenament.
 
 build_training_repro_script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

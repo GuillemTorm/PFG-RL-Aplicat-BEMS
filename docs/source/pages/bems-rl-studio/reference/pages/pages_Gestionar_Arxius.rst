@@ -43,7 +43,7 @@ render_weather_view_selector
 build_selection_archive
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:75``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:55``.
 
 .. code-block:: python
 
@@ -58,7 +58,7 @@ build_selection_archive
 build_download_name
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:109``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:89``.
 
 .. code-block:: python
 
@@ -73,7 +73,7 @@ build_download_name
 clear_prepared_archive_if_stale
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:116``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:96``.
 
 .. code-block:: python
 
@@ -88,7 +88,7 @@ clear_prepared_archive_if_stale
 delete_items
 ~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:132``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:112``.
 
 .. code-block:: python
 
@@ -103,7 +103,7 @@ delete_items
 handle_uploaded_files
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:152``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:132``.
 
 .. code-block:: python
 
@@ -118,7 +118,7 @@ handle_uploaded_files
 navigate_file_explorer_up
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:169``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:149``.
 
 .. code-block:: python
 
@@ -133,7 +133,7 @@ navigate_file_explorer_up
 navigate_file_explorer_into
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:178``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:158``.
 
 .. code-block:: python
 
@@ -148,7 +148,7 @@ navigate_file_explorer_into
 render_explorer
 ~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:183``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Gestionar_Arxius.py:163``.
 
 .. code-block:: python
 

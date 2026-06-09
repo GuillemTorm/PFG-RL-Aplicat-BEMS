@@ -73,7 +73,7 @@ build_training_observation_config
 
 .. code-block:: text
 
-   Crea la configuració d'observació d'entrenament per al flux Studio.
+   Munta la configuració d'observacions d'entrenament.
 
 build_variable_name_for_actuator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -88,7 +88,7 @@ build_variable_name_for_actuator
 
 .. code-block:: text
 
-   Crea el nom de la variable per a l'actuador per al flux Studio.
+   Genera el nom de variable associat a un actuador.
 
 build_action_space_expression
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,7 +103,7 @@ build_action_space_expression
 
 .. code-block:: text
 
-   Crea una expressió d'espai d'acció per al flux Studio.
+   Construeix una expressió d'espai d'acció.
 
 build_environment_config
 ~~~~~~~~~~~~~~~~~~~~~~~~

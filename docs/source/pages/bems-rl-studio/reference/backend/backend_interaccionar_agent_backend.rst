@@ -88,7 +88,7 @@ build_env_factory
 
 .. code-block:: text
 
-   Crea una fàbrica d'env per al flux Studio.
+   Crea la funció que inicialitza l'entorn de la sessió d'interacció.
 
 validate_action_contract
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -373,7 +373,7 @@ build_history_entry
 
 .. code-block:: text
 
-   Crea l'entrada de l'historial per al flux Studio.
+   Prepara una entrada d'historial per a una acció de l'agent.
 
 run_environment_steps
 ~~~~~~~~~~~~~~~~~~~~~

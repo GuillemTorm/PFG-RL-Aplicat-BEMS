@@ -28,7 +28,7 @@ Functions
 inject_home_styles
 ~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/page_styles/inici.py:97``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/page_styles/inici.py:95``.
 
 .. code-block:: python
 

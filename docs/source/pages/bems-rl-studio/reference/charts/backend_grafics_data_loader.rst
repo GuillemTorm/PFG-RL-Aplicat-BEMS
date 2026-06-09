@@ -72,7 +72,7 @@ _read_csv
 
 .. code-block:: text
 
-   Llegeix un fitxer CSV i torneu-ne una còpia perquè les crides que la rebin la puguin mutar amb seguretat.
+   Llegeix un fitxer CSV i en retorna una còpia segura per mutar.
 
 _fill_missing_or_zero
 ~~~~~~~~~~~~~~~~~~~~~
@@ -117,7 +117,7 @@ _drop_repeated_header_rows
 
 .. code-block:: text
 
-   Elimineu les files de capçalera CSV repetides accidentalment dels fitxers de registre adjunts.
+   Elimina capçaleres CSV repetides accidentalment dins dels fitxers de registre.
 
 _coerce_progress_numeric_columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -132,7 +132,7 @@ _coerce_progress_numeric_columns
 
 .. code-block:: text
 
-   Converteix les mètriques de progrés conegudes en tipus d numèrics després de carregar CSV.
+   Converteix les mètriques de progrés conegudes en valors numèrics.
 
 load_data
 ~~~~~~~~~

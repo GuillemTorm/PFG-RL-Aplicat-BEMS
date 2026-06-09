@@ -271,7 +271,7 @@ make_env
 
 .. code-block:: text
 
-   Crea un env per al flux Studio.
+   Crea l'entorn utilitzat durant l'avaluació.
 
 run_agent_evaluation
 ~~~~~~~~~~~~~~~~~~~~

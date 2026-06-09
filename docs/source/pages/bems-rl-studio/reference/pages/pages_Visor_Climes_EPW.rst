@@ -20,7 +20,7 @@ pages/Visor_Climes_EPW.py
 Imports
 -------
 
-``__future__``, ``backend``, ``dataclasses``, ``importlib``, ``page_components``, ``page_styles``, ``pandas``, ``sidebar_nav``, ``streamlit``
+``__future__``, ``backend``, ``dataclasses``, ``page_components``, ``page_styles``, ``pandas``, ``sidebar_nav``, ``streamlit``
 
 Classes
 -------
@@ -28,7 +28,7 @@ Classes
 EpwDashboardState
 ~~~~~~~~~~~~~~~~~
 
-**Class.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:66``.
+**Class.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:46``.
 
 .. code-block:: python
 
@@ -46,7 +46,7 @@ Functions
 format_number
 ~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:96``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:76``.
 
 .. code-block:: python
 
@@ -61,7 +61,7 @@ format_number
 data_frame_has_plot_values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:111``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:91``.
 
 .. code-block:: python
 
@@ -76,7 +76,7 @@ data_frame_has_plot_values
 wind_rose_tables_have_plot_values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:144``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:124``.
 
 .. code-block:: python
 
@@ -91,7 +91,7 @@ wind_rose_tables_have_plot_values
 render_detail_card
 ~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:153``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:133``.
 
 .. code-block:: python
 
@@ -106,7 +106,7 @@ render_detail_card
 build_map_chart
 ~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:187``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:167``.
 
 .. code-block:: python
 
@@ -121,7 +121,7 @@ build_map_chart
 configure_epw_dashboard_page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:213``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:193``.
 
 .. code-block:: python
 
@@ -136,7 +136,7 @@ configure_epw_dashboard_page
 select_epw_entry
 ~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:221``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:201``.
 
 .. code-block:: python
 
@@ -151,7 +151,7 @@ select_epw_entry
 build_metric_card_values
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:263``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:243``.
 
 .. code-block:: python
 
@@ -166,7 +166,7 @@ build_metric_card_values
 prepare_epw_dashboard_state
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:294``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:274``.
 
 .. code-block:: python
 
@@ -181,7 +181,7 @@ prepare_epw_dashboard_state
 render_tab_intro
 ~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:363``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:343``.
 
 .. code-block:: python
 
@@ -191,12 +191,12 @@ render_tab_intro
 
 .. code-block:: text
 
-   Feu una còpia explicativa a la part superior de cada pestanya EPW a la UI de Streamlit.
+   Mostra un text breu al començament de cada pestanya EPW.
 
 render_annual_heatmap
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:369``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:349``.
 
 .. code-block:: python
 
@@ -206,12 +206,12 @@ render_annual_heatmap
 
 .. code-block:: text
 
-   Representeu un mapa de calor anual quan la taula d'origen contingui dades gràfics.
+   Mostra un mapa de calor anual quan la taula d'origen té valors útils.
 
 render_epw_chart
 ~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:392``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:372``.
 
 .. code-block:: python
 
@@ -226,7 +226,7 @@ render_epw_chart
 render_overview_tab
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:413``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:393``.
 
 .. code-block:: python
 
@@ -241,7 +241,7 @@ render_overview_tab
 render_climate_dashboard_tab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:443``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:423``.
 
 .. code-block:: python
 
@@ -256,7 +256,7 @@ render_climate_dashboard_tab
 render_comfort_radiation_chart
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:485``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:465``.
 
 .. code-block:: python
 
@@ -271,7 +271,7 @@ render_comfort_radiation_chart
 render_monthly_wind_rose_chart
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:510``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:490``.
 
 .. code-block:: python
 
@@ -281,12 +281,12 @@ render_monthly_wind_rose_chart
 
 .. code-block:: text
 
-   Representeu les roses dels vents mensuals quan les taules de vent continguin valors útils.
+   Mostra les roses dels vents mensuals quan hi ha dades de vent suficients.
 
 render_series_tab
 ~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:525``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:505``.
 
 .. code-block:: python
 
@@ -301,7 +301,7 @@ render_series_tab
 render_patterns_tab
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:561``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:541``.
 
 .. code-block:: python
 
@@ -311,12 +311,12 @@ render_patterns_tab
 
 .. code-block:: text
 
-   Representeu gràfics de patró climàtic mensual i intradia.
+   Mostra els patrons climàtics mensuals i intradia.
 
 render_pattern_heatmaps
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:591``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:571``.
 
 .. code-block:: python
 
@@ -331,7 +331,7 @@ render_pattern_heatmaps
 render_epw_tabs
 ~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:617``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:597``.
 
 .. code-block:: python
 
@@ -346,7 +346,7 @@ render_epw_tabs
 render_epw_download
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:634``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:614``.
 
 .. code-block:: python
 
@@ -361,7 +361,7 @@ render_epw_download
 render_epw_dashboard
 ~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:652``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Visor_Climes_EPW.py:632``.
 
 .. code-block:: python
 

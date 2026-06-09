@@ -223,7 +223,7 @@ render_completed_baseline
 render_baseline_runtime
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Simular_Entorn.py:329``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Simular_Entorn.py:328``.
 
 .. code-block:: python
 
@@ -238,7 +238,7 @@ render_baseline_runtime
 render_baseline_runtime_frame
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Simular_Entorn.py:355``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Simular_Entorn.py:354``.
 
 .. code-block:: python
 

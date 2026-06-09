@@ -83,5 +83,5 @@ _find_energy_price_column
 
 .. code-block:: text
 
-   Cerqueu la columna del preu de l'energia.
+   Busca la columna del preu de l'energia.
 

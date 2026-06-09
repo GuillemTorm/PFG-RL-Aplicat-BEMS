@@ -38,12 +38,12 @@ _checkbox_kwargs
 
 .. code-block:: text
 
-   No docstring available yet.
+   Prepara els arguments comuns dels checkboxes del formulari d'entrenament.
 
 render_observation_wrappers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:26``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:27``.
 
 .. code-block:: python
 
@@ -58,7 +58,7 @@ render_observation_wrappers
 render_action_wrappers
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:301``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:302``.
 
 .. code-block:: python
 
@@ -73,7 +73,7 @@ render_action_wrappers
 render_energy_logging_wrappers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:472``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:473``.
 
 .. code-block:: python
 
@@ -88,7 +88,7 @@ render_energy_logging_wrappers
 render_wrappers_section
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:528``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/page_components/training_wrappers.py:529``.
 
 .. code-block:: python
 

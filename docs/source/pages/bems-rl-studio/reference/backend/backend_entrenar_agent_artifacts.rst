@@ -68,7 +68,7 @@ build_training_artifact_paths
 
 .. code-block:: text
 
-   Crea rutes d'artefactes d'entrenament per al flux Studio.
+   Calcula les rutes dels artefactes d'una sessió d'entrenament.
 
 append_detailed_meter_kwh_columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -128,7 +128,7 @@ build_training_ui_state
 
 .. code-block:: text
 
-   Crea l'estat de la interfície de l'entrenament per al flux Studio.
+   Prepara l'estat inicial de la interfície d'entrenament.
 
 list_saved_training_runs
 ~~~~~~~~~~~~~~~~~~~~~~~~

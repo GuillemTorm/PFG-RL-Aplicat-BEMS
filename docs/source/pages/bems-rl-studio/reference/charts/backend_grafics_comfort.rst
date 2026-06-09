@@ -166,7 +166,7 @@ make_comfort_compliance
 
 .. code-block:: text
 
-   Crea un compliment còmode per al flux Studio.
+   Crea el gràfic de percentatge d'hores dins el rang de confort.
 
 make_violation_bars
 ~~~~~~~~~~~~~~~~~~~
@@ -181,7 +181,7 @@ make_violation_bars
 
 .. code-block:: text
 
-   Crea barres d'infracció per al flux Studio.
+   Crea el gràfic de barres de desviació de confort.
 
 _fix_colors_for_visibility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,5 +212,5 @@ make_violation_single_line
 
 .. code-block:: text
 
-   Crea una línia única d'infracció per al flux Studio.
+   Crea la línia de desviació de temperatura.
 

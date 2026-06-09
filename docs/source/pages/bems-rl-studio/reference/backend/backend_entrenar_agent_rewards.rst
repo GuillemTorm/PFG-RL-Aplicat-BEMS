@@ -38,7 +38,7 @@ build_multizone_temp_mapping
 
 .. code-block:: text
 
-   Crea un mapa temporal multizona per al flux Studio.
+   Prepara un mapa de temperatures i setpoints per zones.
 
 build_multizone_occupancy_mapping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,7 +53,7 @@ build_multizone_occupancy_mapping
 
 .. code-block:: text
 
-   Crea un mapa d'ocupació multizona per al flux Studio.
+   Prepara un mapa d'ocupació per zones.
 
 _build_common_reward_kwargs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,7 +158,7 @@ build_reward_kwargs
 
 .. code-block:: text
 
-   Crea kwargs de recompensa per al flux Studio.
+   Munta els kwargs de recompensa a partir de la configuració.
 
 validate_training_configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -188,7 +188,7 @@ build_algo_kwargs
 
 .. code-block:: text
 
-   Crea algo kwargs per al flux Studio.
+   Munta els kwargs de l'algorisme a partir de la configuració.
 
 assemble_training_payload
 ~~~~~~~~~~~~~~~~~~~~~~~~~

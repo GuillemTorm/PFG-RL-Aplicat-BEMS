@@ -101,7 +101,7 @@ sanitize_multiselect_state
 
 .. code-block:: text
 
-   Elimineu els valors obsolets d'un camp de selecció múltiple en estat de sessió.
+   Elimina valors obsolets d'un camp de selecció múltiple en estat de sessió.
 
    Els valors que ja no estan presents a les opcions s'eliminen. Si el resultat és
    buit i es proporciona una alternativa, s'utilitzen elements de reserva vàlids.

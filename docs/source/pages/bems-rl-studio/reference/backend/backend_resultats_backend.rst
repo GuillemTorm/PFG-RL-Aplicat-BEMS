@@ -146,7 +146,7 @@ build_results_page_state
 
 .. code-block:: text
 
-   Crea l'estat inicial de la pàgina escanejant el directori base per trobar execucions vàlides per al flux Studio.
+   Escaneja el directori base i construeix l'estat inicial de resultats.
 
 get_run_artifacts
 ~~~~~~~~~~~~~~~~~
@@ -281,7 +281,7 @@ _slugify_model_lookup
 
 .. code-block:: text
 
-   Normalitzeu els noms de la mateixa manera que ho fan els directoris d'artefactes d'entrenament.
+   Normalitza els noms igual que els directoris d'artefactes d'entrenament.
 
 _candidate_model_roots
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -386,7 +386,7 @@ build_real_period_options
 
 .. code-block:: text
 
-   Crea opcions de dia, setmana o mes seleccionables per a les visualitzacions de sèries temporals en brut per al flux Studio.
+   Prepara opcions de dia, setmana o mes per a les sèries temporals en brut.
 
 slice_obs_for_real_period
 ~~~~~~~~~~~~~~~~~~~~~~~~~
