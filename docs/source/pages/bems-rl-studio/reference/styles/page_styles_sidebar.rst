@@ -28,7 +28,7 @@ Functions
 inject_sidebar_shell_styles
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/page_styles/sidebar.py:268``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/page_styles/sidebar.py:265``.
 
 .. code-block:: python
 

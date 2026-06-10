@@ -29,6 +29,7 @@ Import-safe application services for environments, training, evaluation, results
    backend_model_metadata
    backend_mostrar_entorn_backend
    backend_resultats_backend
+   backend_resultats_figures
    backend_resultats_report_backend
    backend_sb3_utils
    backend_simular_entorn_backend

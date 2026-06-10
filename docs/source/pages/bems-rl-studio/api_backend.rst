@@ -25,6 +25,7 @@ Backend module map
      evaluation [label="avaluar_agent_backend"];
      live [label="interaccionar_agent_backend"];
      results [label="resultats_backend"];
+     figures [label="resultats_figures"];
      reports [label="resultats_report_backend"];
      files [label="gestionar_arxius_backend"];
      epw [label="visor_epw_backend\nweather_profiles\nepw_figures"];
@@ -38,7 +39,7 @@ Backend module map
      sb3 -> live;
      artefacts -> evaluation;
      artefacts -> live;
-     artefacts -> results -> reports;
+     artefacts -> results -> figures -> reports;
      files -> assets;
      files -> artefacts;
    }
@@ -171,6 +172,11 @@ Results, reports and artefacts
 ==============================
 
 .. automodule:: backend.resultats_backend
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: backend.resultats_figures
    :members:
    :undoc-members:
    :show-inheritance:

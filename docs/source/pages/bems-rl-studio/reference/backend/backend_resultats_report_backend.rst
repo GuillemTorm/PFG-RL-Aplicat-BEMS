@@ -25,25 +25,7 @@ backend/resultats_report_backend.py
 Imports
 -------
 
-``__future__``, ``backend``, ``base64``, ``dataclasses``, ``datetime``, ``html``, ``math``, ``numbers``, ``page_styles``, ``pdfkit``, ``plotly``
-
-Classes
--------
-
-ReportFigure
-~~~~~~~~~~~~
-
-**Class.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:63``.
-
-.. code-block:: python
-
-   class ReportFigure
-
-**Docstring**
-
-.. code-block:: text
-
-   Plotly gràfic més la secció d'informe on hauria d'aparèixer.
+``__future__``, ``backend``, ``base64``, ``datetime``, ``html``, ``math``, ``numbers``, ``page_styles``, ``pdfkit``, ``plotly``
 
 Functions
 ---------
@@ -51,7 +33,7 @@ Functions
 generate_report_bytes
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:71``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:35``.
 
 .. code-block:: python
 
@@ -67,25 +49,10 @@ generate_report_bytes
    disponible. Si la representació estàtica PDF no està disponible, retorna un informe HTML
    amb el mateix contingut perquè UI encara pugui oferir una exportació completa.
 
-_build_report_figures
-~~~~~~~~~~~~~~~~~~~~~
-
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:121``.
-
-.. code-block:: python
-
-   def _build_report_figures( data: DashboardData, zone_obs, action_data, agg_mode: str, season: str, comfort_scope: str, ) -> tuple[ReportFigure, ...]
-
-**Docstring**
-
-.. code-block:: text
-
-   Prepara les figures incloses en un informe de resultats exportat.
-
 _render_report_document
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:267``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:85``.
 
 .. code-block:: python
 
@@ -100,7 +67,7 @@ _render_report_document
 _format_kpi_value
 ~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:383``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:201``.
 
 .. code-block:: python
 
@@ -115,7 +82,7 @@ _format_kpi_value
 _render_report_figures
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:398``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:216``.
 
 .. code-block:: python
 
@@ -130,7 +97,7 @@ _render_report_figures
 _render_single_report_figure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:440``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:258``.
 
 .. code-block:: python
 
@@ -145,7 +112,7 @@ _render_single_report_figure
 _prepare_export_figure
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:473``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/backend/resultats_report_backend.py:291``.
 
 .. code-block:: python
 

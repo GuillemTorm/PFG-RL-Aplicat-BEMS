@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import base64
 import math
-from dataclasses import dataclass
 from datetime import datetime
 from html import escape
 from numbers import Number
@@ -18,54 +17,19 @@ from numbers import Number
 import plotly.graph_objects as go
 
 from backend.grafics.comfort_scope import comfort_scope_label
-from backend.grafics.battery import (
-    make_battery_charge_with_price_plot,
-    make_battery_power_plot,
-    make_battery_soc_plot,
-    make_battery_vs_grid_plot,
-    make_energy_price_plot,
-)
-from backend.grafics.comfort import (
-    _fix_colors_for_visibility,
-    make_comfort_compliance,
-    make_violation_bars,
-)
-from backend.grafics.control import make_agent_actions_plot, make_radiant_control_plot
-from backend.grafics.episode import make_episode_metrics
-from backend.grafics.heatmaps import (
-    make_heatmap,
-    make_violation_heatmap_percent,
-    make_zone_temperature_heatmaps,
-)
-from backend.grafics.hvac import make_hvac_consumption_plot, make_hvac_meter_breakdown_plot
-from backend.grafics.style import style_figure_semantics
-from backend.grafics.thermal import (
-    make_indoor_humidity_plot,
-    make_indoor_temperature_plot,
-    make_setpoints_plot,
-    make_setpoints_vs_indoor_plot,
-)
 from backend.grafics.figures_zones import filter_obs_by_zone
 from backend.grafics.kpis import compute_kpis
+from backend.grafics.style import style_figure_semantics
 from backend.resultats_backend import (
     DashboardData,
     add_comfort_percentage_kpi,
-    has_action_figure_data,
     has_figure_data,
     load_dashboard_data,
     select_actions_for_obs,
     select_radiant_action_data,
 )
+from backend.resultats_figures import ReportFigure, build_report_figures
 from page_styles.reports import REPORT_HTML_CSS
-
-
-@dataclass(frozen=True)
-class ReportFigure:
-    """Plotly gràfic més la secció d'informe on hauria d'aparèixer."""
-
-    section: str
-    title: str
-    figure: go.Figure
 
 
 def generate_report_bytes(
@@ -99,7 +63,7 @@ def generate_report_bytes(
     kpis.pop("Avg Energy Cost (EUR/h)", None)
     add_comfort_percentage_kpi(kpis, zone_obs, data.yaml_cfg)
 
-    figures = _build_report_figures(
+    figures = build_report_figures(
         data=data,
         zone_obs=zone_obs,
         action_data=action_data,
@@ -115,152 +79,6 @@ def generate_report_bytes(
         season=season,
         selected_zone=selected_zone,
         comfort_scope=comfort_scope,
-    )
-
-
-def _build_report_figures(
-    data: DashboardData,
-    zone_obs,
-    action_data,
-    agg_mode: str,
-    season: str,
-    comfort_scope: str,
-) -> tuple[ReportFigure, ...]:
-    """Prepara les figures incloses en un informe de resultats exportat."""
-
-    # L'informe reutilitza les mateixes factories del dashboard per evitar que PDF i UI
-    # expliquin històries diferents.
-    comfort_mode = "raw" if agg_mode == "day" else agg_mode
-    pivot = data.metrics_dict.get("pivot_consumption")
-    action_fig = make_agent_actions_plot(action_data, agg_mode, season)
-    if not has_action_figure_data(action_fig):
-        action_fig = go.Figure()
-
-    return (
-        ReportFigure(
-            "Confort i clima interior",
-            "Confort (%)",
-            make_comfort_compliance(
-                zone_obs,
-                comfort_mode,
-                season,
-                comfort_scope=comfort_scope,
-                comfort_config=data.yaml_cfg,
-            ),
-        ),
-        ReportFigure(
-            "Confort i clima interior",
-            "Temperatura interior vs exterior",
-            make_indoor_temperature_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Confort i clima interior",
-            "Humitat interior vs exterior",
-            make_indoor_humidity_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Confort i clima interior",
-            "Infraccions de confort",
-            _fix_colors_for_visibility(
-                make_violation_bars(
-                    zone_obs,
-                    agg_mode,
-                    season,
-                    comfort_scope=comfort_scope,
-                    comfort_config=data.yaml_cfg,
-                ),
-                kind="violation",
-                mode=agg_mode,
-            ),
-        ),
-        ReportFigure(
-            "Confort i clima interior",
-            "Mapa de calor d'infraccions de confort (%)",
-            make_violation_heatmap_percent(
-                zone_obs,
-                season=season,
-                comfort_config=data.yaml_cfg,
-            ),
-        ),
-        ReportFigure(
-            "Confort i clima interior",
-            "Temperatura per zona (mes x hora)",
-            make_zone_temperature_heatmaps(
-                zone_obs,
-                season=season,
-                agg="mean",
-                max_cols=3,
-            ),
-        ),
-        ReportFigure(
-            "Consum i energia",
-            "Consum HVAC (kWh)",
-            _fix_colors_for_visibility(
-                make_hvac_consumption_plot(zone_obs, agg_mode, season),
-                kind="hvac",
-                mode=agg_mode,
-            ),
-        ),
-        ReportFigure(
-            "Consum i energia",
-            "Desglossament HVAC per meter (kWh)",
-            make_hvac_meter_breakdown_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Consum i energia",
-            "Preu energia (EUR/kWh)",
-            make_energy_price_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Consum i energia",
-            "Mapa de calor global (consum)",
-            (
-                make_heatmap(pivot, "Total HVAC Consumption (kWh)")
-                if pivot is not None and not pivot.empty
-                else go.Figure()
-            ),
-        ),
-        ReportFigure(
-            "Control HVAC",
-            "Actuació tèrmica (setpoints)",
-            make_setpoints_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Control HVAC",
-            "Setpoints vs temperatura interior",
-            make_setpoints_vs_indoor_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Control HVAC",
-            "Control radiant",
-            make_radiant_control_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure("Control HVAC", "Accions de l'agent", action_fig),
-        ReportFigure(
-            "Bateria i xarxa",
-            "Càrrega/descàrrega bateria",
-            make_battery_power_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Bateria i xarxa",
-            "SOC bateria",
-            make_battery_soc_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Bateria i xarxa",
-            "Energia bateria vs xarxa",
-            make_battery_vs_grid_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Bateria i xarxa",
-            "Bateria vs preu energia",
-            make_battery_charge_with_price_plot(zone_obs, agg_mode, season),
-        ),
-        ReportFigure(
-            "Episodi",
-            "Mètriques d'episodi",
-            make_episode_metrics(data.progress),
-        ),
     )
 
 

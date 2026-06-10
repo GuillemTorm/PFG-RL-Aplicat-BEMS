@@ -44,6 +44,7 @@ Main capabilities
      - Reads simulation outputs, derives KPIs, creates Plotly figures, and
        exports an HTML/PDF report.
      - ``backend.resultats_backend``,
+       ``backend.resultats_figures``,
        ``backend.resultats_report_backend``, ``backend.grafics``
 
 Documentation map

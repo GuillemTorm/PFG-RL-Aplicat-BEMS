@@ -112,7 +112,8 @@ CSV files directly.
      env_backend [label="afegir_entorn_*"];
      train_backend [label="entrenar_agent_*"];
      eval_backend [label="avaluar_agent_backend\ninteraccionar_agent_backend"];
-     result_backend [label="resultats_backend\nbackend.grafics"];
+     result_backend [label="resultats_backend"];
+     result_figures [label="resultats_figures\nbackend.grafics"];
      report_backend [label="resultats_report_backend"];
 
      buildings -> env_backend;
@@ -128,7 +129,7 @@ CSV files directly.
      eval_backend -> observations;
      progress -> result_backend;
      observations -> result_backend;
-     result_backend -> report_backend -> report;
+     result_backend -> result_figures -> report_backend -> report;
    }
 
 Package responsibilities
