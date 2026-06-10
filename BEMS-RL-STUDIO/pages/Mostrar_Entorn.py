@@ -622,42 +622,37 @@ def render_environment_page() -> None:
                 # Avís clima no disponible
                 st.info("No hi ha cap fitxer de clima disponible per mostrar en aquesta configuració.")
 
-            # Separador clima energia
-            st.markdown("<div class='studio-spacer-070'></div>", unsafe_allow_html=True)
-            # Seccio solar bateria
-            st.markdown("### Solar i bateria")
-            st.caption("Actius energètics detectats a partir de la geometria i dels objectes associats.")
+            if pv_list or storage_list:
+                # Separador clima energia
+                st.markdown("<div class='studio-spacer-070'></div>", unsafe_allow_html=True)
+                # Seccio solar bateria
+                st.markdown("### Solar i bateria")
+                st.caption("Actius energètics detectats a partir de la geometria i dels objectes associats.")
 
-            if pv_list:
-                pv_summary = summarize_pv(records, name_index, pv_list)
-                surface_names = pv_summary["surfaces_with_pv"]
-                # Mostrem només unes quantes superfícies perquè alguns models tenen molts
-                # panells i la targeta quedaria il·legible.
-                surface_preview = ", ".join(surface_names[:4]) if surface_names else "Sense coincidencies"
-                if len(surface_names) > 4:
-                    surface_preview += f" +{len(surface_names) - 4} mes"
-                # Targeta panells fotovoltaics
-                render_detail_card(
-                    "Panells fotovoltaics",
-                    [
-                        ("Generadors PV", str(pv_summary["count"])),
-                        ("Cares actives", str(len(surface_names))),
-                        ("Area aprox.", "0 m2" if pv_summary["area_m2"] is None else f"{pv_summary['area_m2']:.2f} m2"),
-                        ("Tilt mig", "0 deg" if pv_summary["avg_tilt"] is None else f"{pv_summary['avg_tilt']:.0f} deg"),
-                        ("Azimut mig", "0 deg" if pv_summary["avg_azimuth"] is None else f"{pv_summary['avg_azimuth']:.0f} deg"),
-                        ("Superficies", surface_preview),
-                    ],
-                )
-            else:
-                # Avís sense panells PV
-                st.info("No s'han detectat panells fotovoltaics associats a superficies.")
+                if pv_list:
+                    pv_summary = summarize_pv(records, name_index, pv_list)
+                    surface_names = pv_summary["surfaces_with_pv"]
+                    # Mostrem només unes quantes superfícies perquè alguns models tenen molts
+                    # panells i la targeta quedaria il·legible.
+                    surface_preview = ", ".join(surface_names[:4]) if surface_names else "Sense coincidencies"
+                    if len(surface_names) > 4:
+                        surface_preview += f" +{len(surface_names) - 4} mes"
+                    # Targeta panells fotovoltaics
+                    render_detail_card(
+                        "Panells fotovoltaics",
+                        [
+                            ("Generadors PV", str(pv_summary["count"])),
+                            ("Cares actives", str(len(surface_names))),
+                            ("Area aprox.", "0 m2" if pv_summary["area_m2"] is None else f"{pv_summary['area_m2']:.2f} m2"),
+                            ("Tilt mig", "0 deg" if pv_summary["avg_tilt"] is None else f"{pv_summary['avg_tilt']:.0f} deg"),
+                            ("Azimut mig", "0 deg" if pv_summary["avg_azimuth"] is None else f"{pv_summary['avg_azimuth']:.0f} deg"),
+                            ("Superficies", surface_preview),
+                        ],
+                    )
 
-            if storage_list:
-                # Targetes bateria
-                render_battery_cards(storage_list)
-            else:
-                # Avís sense bateria
-                st.info("No s'han detectat objectes de bateria.")
+                if storage_list:
+                    # Targetes bateria
+                    render_battery_cards(storage_list)
 
         with col2:
             # Taules kwargs entorn
