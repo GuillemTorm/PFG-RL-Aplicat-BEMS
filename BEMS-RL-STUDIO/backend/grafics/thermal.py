@@ -262,32 +262,6 @@ def _build_setpoint_trace(
     return trace
 
 
-def make_setpoints_plot(obs: pd.DataFrame, mode: str, season: str) -> go.Figure:
-    """Crea una figura Plotly per als punts de consigna."""
-    base = _ensure_datetime_index(obs).copy()
-
-    base, has_setpoints = _with_global_setpoint_columns(base)
-    if not has_setpoints:
-        return go.Figure()
-
-    fig = go.Figure()
-
-    htg_color = pick_semantic_trace_color("Heating Setpoint")
-    clg_color = pick_semantic_trace_color("Cooling Setpoint")
-    htg_style = dict(color=htg_color, width=3.2, shape="hv" if mode in ("hour", "raw") else "linear")
-    clg_style = dict(color=clg_color, width=3.2, shape="hv" if mode in ("hour", "raw") else "linear")
-    tr1 = _build_setpoint_trace(base, "htg_setpoint", "Heating Setpoint", htg_style, mode, season)
-    tr2 = _build_setpoint_trace(base, "clg_setpoint", "Cooling Setpoint", clg_style, mode, season)
-    if tr1: fig.add_trace(tr1)
-    if tr2: fig.add_trace(tr2)
-
-    _apply_mode_xaxis(fig, mode)
-
-    fig.update_yaxes(title="Temperature (°C)")
-    fig.update_layout(title=f"Setpoints – {mode.capitalize()} ({season})")
-    return fig
-
-
 # Comparació entre consignes i temperatura interior.
 def make_setpoints_vs_indoor_plot(obs: pd.DataFrame, mode: str, season: str) -> go.Figure:
     """Crea una figura Plotly per a punts de consigna vs interior."""

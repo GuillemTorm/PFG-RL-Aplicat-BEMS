@@ -91,8 +91,8 @@ DASHBOARD_TAB_SPECS = (
     DashboardTabSpec(
         "Control HVAC",
         "control",
-        "Setpoints tèrmics, actuació del control radiant i accions que l'agent RL ha aplicat "
-        "al sistema HVAC.",
+        "Consignes tèrmiques comparades amb la temperatura interior, actuació del control "
+        "radiant i accions que l'agent RL ha aplicat al sistema HVAC.",
         tuple((key, "always") for key in CONTROL_FIGURE_KEYS),
     ),
     DashboardTabSpec(

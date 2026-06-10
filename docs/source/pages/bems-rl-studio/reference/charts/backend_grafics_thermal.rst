@@ -85,25 +85,10 @@ _build_setpoint_trace
 
    Crea una traça relacionada amb el punt de consigna per al mode d'agregació seleccionat.
 
-make_setpoints_plot
-~~~~~~~~~~~~~~~~~~~
-
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/grafics/thermal.py:265``.
-
-.. code-block:: python
-
-   def make_setpoints_plot(obs: pd.DataFrame, mode: str, season: str) -> go.Figure
-
-**Docstring**
-
-.. code-block:: text
-
-   Crea una figura Plotly per als punts de consigna.
-
 make_setpoints_vs_indoor_plot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/grafics/thermal.py:292``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/grafics/thermal.py:266``.
 
 .. code-block:: python
 

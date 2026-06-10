@@ -28,7 +28,7 @@ Classes
 ReportFigure
 ~~~~~~~~~~~~
 
-**Class.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:48``.
+**Class.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:47``.
 
 .. code-block:: python
 
@@ -46,7 +46,7 @@ Functions
 build_dashboard_figures
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:140``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:135``.
 
 .. code-block:: python
 
@@ -61,7 +61,7 @@ build_dashboard_figures
 overlay_dashboard_figures
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:232``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:226``.
 
 .. code-block:: python
 
@@ -76,7 +76,7 @@ overlay_dashboard_figures
 style_dashboard_figures
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:252``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:246``.
 
 .. code-block:: python
 
@@ -91,7 +91,7 @@ style_dashboard_figures
 build_report_figures
 ~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:268``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/backend/resultats_figures.py:262``.
 
 .. code-block:: python
 

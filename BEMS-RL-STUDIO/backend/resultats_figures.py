@@ -32,7 +32,6 @@ from backend.grafics.style import style_figure_semantics
 from backend.grafics.thermal import (
     make_indoor_humidity_plot,
     make_indoor_temperature_plot,
-    make_setpoints_plot,
     make_setpoints_vs_indoor_plot,
 )
 from backend.resultats_backend import (
@@ -53,7 +52,7 @@ class ReportFigure:
     figure: go.Figure
 
 
-CONTROL_FIGURE_KEYS = ("setpoints", "setpoints_vs_indoor", "radiant", "actions")
+CONTROL_FIGURE_KEYS = ("setpoints_vs_indoor", "radiant", "actions")
 BATTERY_FIGURE_KEYS = (
     "battery_power",
     "battery_soc",
@@ -63,7 +62,6 @@ BATTERY_FIGURE_KEYS = (
 REAL_AXIS_FIGURE_KEYS = (
     "indoor",
     "humidity",
-    "setpoints",
     "setpoints_vs_indoor",
     "radiant",
     "actions",
@@ -79,7 +77,6 @@ REAL_AXIS_FIGURE_KEYS = (
 STYLE_FIGURE_KEYS = (
     "indoor",
     "humidity",
-    "setpoints",
     "setpoints_vs_indoor",
     "radiant",
     "actions",
@@ -96,7 +93,6 @@ STYLE_FIGURE_KEYS = (
 OVERLAY_FIGURE_KEYS = (
     "indoor",
     "humidity",
-    "setpoints",
     "setpoints_vs_indoor",
     "radiant",
     "hvac",
@@ -125,7 +121,6 @@ REPORT_FIGURE_SPECS = (
     ("hvac_breakdown", "Consum i energia", "Desglossament HVAC per meter (kWh)"),
     ("energy_price", "Consum i energia", "Preu energia (EUR/kWh)"),
     ("heatmap", "Consum i energia", "Mapa de calor global (consum)"),
-    ("setpoints", "Control HVAC", "Actuació tèrmica (setpoints)"),
     ("setpoints_vs_indoor", "Control HVAC", "Setpoints vs temperatura interior"),
     ("radiant", "Control HVAC", "Control radiant"),
     ("actions", "Control HVAC", "Accions de l'agent"),
@@ -167,7 +162,6 @@ def build_dashboard_figures(
         ),
         "indoor": make_indoor_temperature_plot(zobs, plot_mode, plot_season),
         "humidity": make_indoor_humidity_plot(zobs, plot_mode, plot_season),
-        "setpoints": make_setpoints_plot(zobs, plot_mode, plot_season),
         "setpoints_vs_indoor": make_setpoints_vs_indoor_plot(zobs, plot_mode, plot_season),
         "radiant": make_radiant_control_plot(zobs, plot_mode, plot_season),
         "actions": make_agent_actions_plot(action_data, plot_mode, plot_season),
