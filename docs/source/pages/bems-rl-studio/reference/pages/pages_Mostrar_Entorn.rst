@@ -23,15 +23,30 @@ pages/Mostrar_Entorn.py
 Imports
 -------
 
-``backend``, ``gymnasium``, ``html``, ``numpy``, ``page_components``, ``page_styles``, ``pandas``, ``sidebar_nav``, ``streamlit``, ``typing``
+``backend``, ``gymnasium``, ``html``, ``json``, ``numpy``, ``page_components``, ``page_styles``, ``pandas``, ``re``, ``sidebar_nav``, ``streamlit``, ``typing``
 
 Functions
 ---------
 
+_dataframe_height
+~~~~~~~~~~~~~~~~~
+
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:46``.
+
+.. code-block:: python
+
+   def _dataframe_height(row_count: int, *, max_height: int = 340) -> int
+
+**Docstring**
+
+.. code-block:: text
+
+   Calcula una alçada de taula ajustada al nombre de files visibles.
+
 render_environment_hero
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:41``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:54``.
 
 .. code-block:: python
 
@@ -46,7 +61,7 @@ render_environment_hero
 render_environment_section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:47``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:60``.
 
 .. code-block:: python
 
@@ -61,7 +76,7 @@ render_environment_section
 describe_environment_tags
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:53``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:66``.
 
 .. code-block:: python
 
@@ -76,7 +91,7 @@ describe_environment_tags
 render_environment_tags
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:75``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:88``.
 
 .. code-block:: python
 
@@ -91,7 +106,7 @@ render_environment_tags
 render_metric_card
 ~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:85``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:98``.
 
 .. code-block:: python
 
@@ -106,7 +121,7 @@ render_metric_card
 render_metric_cards
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:101``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:114``.
 
 .. code-block:: python
 
@@ -121,7 +136,7 @@ render_metric_cards
 render_detail_card
 ~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:123``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:136``.
 
 .. code-block:: python
 
@@ -136,7 +151,7 @@ render_detail_card
 render_battery_cards
 ~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:144``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:157``.
 
 .. code-block:: python
 
@@ -151,7 +166,7 @@ render_battery_cards
 _reward_label
 ~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:182``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:195``.
 
 .. code-block:: python
 
@@ -166,7 +181,7 @@ _reward_label
 render_basic_config
 ~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:188``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:201``.
 
 .. code-block:: python
 
@@ -181,7 +196,7 @@ render_basic_config
 render_action_space_summary
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:203``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:216``.
 
 .. code-block:: python
 
@@ -196,7 +211,7 @@ render_action_space_summary
 _actuators_mapping_df
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:261``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:284``.
 
 .. code-block:: python
 
@@ -208,14 +223,59 @@ _actuators_mapping_df
 
    Construeix un resum llegible del mapatge entre dimensions i actuadors.
 
-render_kwargs_overview
-~~~~~~~~~~~~~~~~~~~~~~
+_json_safe_value
+~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:289``.
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:312``.
 
 .. code-block:: python
 
-   def render_kwargs_overview(kwargs: Dict[str, Any]) -> None
+   def _json_safe_value(value: Any) -> Any
+
+**Docstring**
+
+.. code-block:: text
+
+   Converteix objectes Python/Gym/NumPy a valors aptes per a JSON.
+
+_json_download_payload
+~~~~~~~~~~~~~~~~~~~~~~
+
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:330``.
+
+.. code-block:: python
+
+   def _json_download_payload(value: Dict[str, Any]) -> bytes
+
+**Docstring**
+
+.. code-block:: text
+
+   Serialitza la configuració de l'entorn per descarregar-la sense renderitzar-la.
+
+_safe_json_filename
+~~~~~~~~~~~~~~~~~~~
+
+**Internal helper.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:341``.
+
+.. code-block:: python
+
+   def _safe_json_filename(env_name: str) -> str
+
+**Docstring**
+
+.. code-block:: text
+
+   Crea un nom de fitxer estable per descarregar la configuració de l'entorn.
+
+render_kwargs_overview
+~~~~~~~~~~~~~~~~~~~~~~
+
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:348``.
+
+.. code-block:: python
+
+   def render_kwargs_overview(kwargs: Dict[str, Any], env_name: str) -> None
 
 **Docstring**
 
@@ -226,7 +286,7 @@ render_kwargs_overview
 render_3d_viewer
 ~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:387``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:462``.
 
 .. code-block:: python
 
@@ -244,7 +304,7 @@ render_3d_viewer
 render_environment_page
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:420``.
+**Public function.** Defined in ``BEMS-RL-STUDIO/pages/Mostrar_Entorn.py:495``.
 
 .. code-block:: python
 

@@ -4,6 +4,8 @@ Mostra la geometria 3D, el clima, la configuració i els actius energètics
 associats a l'entorn seleccionat.
 """
 
+import json
+import re
 from html import escape
 from typing import Any, Dict, List, Tuple
 
@@ -36,6 +38,17 @@ INTRODUCTION_TEXT = (
     "Consulta els entorns registrats, explora la geometria de l'edifici "
     "i revisa configuració, clima i actius energètics des d'una sola pàgina."
 )
+_DATAFRAME_HEADER_HEIGHT = 44
+_DATAFRAME_ROW_HEIGHT = 48
+_DATAFRAME_VERTICAL_PADDING = 8
+
+
+def _dataframe_height(row_count: int, *, max_height: int = 340) -> int:
+    """Calcula una alçada de taula ajustada al nombre de files visibles."""
+
+    visible_rows = max(1, int(row_count))
+    content_height = _DATAFRAME_HEADER_HEIGHT + _DATAFRAME_VERTICAL_PADDING
+    return min(max_height, content_height + _DATAFRAME_ROW_HEIGHT * visible_rows)
 
 
 def render_environment_hero() -> None:
@@ -218,7 +231,12 @@ def render_action_space_summary(action_space: Any) -> None:
             for index, (low_value, high_value) in enumerate(zip(low, high))
         ])
         # Taula rangs accio
-        st.dataframe(bounds_df, hide_index=True, width="stretch", height=min(220, 35 * len(bounds_df) + 38))
+        st.dataframe(
+            bounds_df,
+            hide_index=True,
+            width="stretch",
+            height=_dataframe_height(len(bounds_df), max_height=240),
+        )
         return
 
     if isinstance(action_space, gym.spaces.Discrete):
@@ -242,7 +260,12 @@ def render_action_space_summary(action_space: Any) -> None:
             for index, values in enumerate(nvec)
         ])
         # Taula accions multidiscretes
-        st.dataframe(dims_df, hide_index=True, width="stretch", height=min(220, 35 * len(dims_df) + 38))
+        st.dataframe(
+            dims_df,
+            hide_index=True,
+            width="stretch",
+            height=_dataframe_height(len(dims_df), max_height=240),
+        )
         return
 
     if isinstance(action_space, gym.spaces.MultiBinary):
@@ -286,13 +309,49 @@ def _actuators_mapping_df(actuators: Dict[str, Any]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def render_kwargs_overview(kwargs: Dict[str, Any]) -> None:
+def _json_safe_value(value: Any) -> Any:
+    """Converteix objectes Python/Gym/NumPy a valors aptes per a JSON."""
+
+    if isinstance(value, dict):
+        return {str(key): _json_safe_value(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe_value(item) for item in value]
+    if isinstance(value, set):
+        return sorted(_format_ui_value(item) for item in value)
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, np.generic):
+        return value.item()
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    return _format_ui_value(value)
+
+
+def _json_download_payload(value: Dict[str, Any]) -> bytes:
+    """Serialitza la configuració de l'entorn per descarregar-la sense renderitzar-la."""
+
+    return json.dumps(
+        _json_safe_value(value),
+        ensure_ascii=False,
+        indent=2,
+        sort_keys=True,
+    ).encode("utf-8")
+
+
+def _safe_json_filename(env_name: str) -> str:
+    """Crea un nom de fitxer estable per descarregar la configuració de l'entorn."""
+
+    safe_name = re.sub(r"[^A-Za-z0-9_.-]+", "_", env_name).strip("._")
+    return f"{safe_name or 'entorn'}_config.json"
+
+
+def render_kwargs_overview(kwargs: Dict[str, Any], env_name: str) -> None:
     """Secció de visió general de renderització de kwargs a la UI de Streamlit."""
     # Els kwargs de Sinergym barregen variables, actuadors, reward i camps interns.
     # Els separem en pestanyes perquè sigui revisable sense llegir el JSON sencer.
     # Pestanyes kwargs entorn
-    tab_obs, tab_control, tab_reward, tab_misc, tab_raw = st.tabs([
-        'Variables', 'Control', 'Reward', 'Extra', 'JSON brut'
+    tab_obs, tab_control, tab_reward, tab_misc = st.tabs([
+        'Variables', 'Control', 'Reward', 'Extra'
     ])
 
     with tab_obs:
@@ -306,7 +365,12 @@ def render_kwargs_overview(kwargs: Dict[str, Any]) -> None:
         if not variables_df.empty:
             # Taula variables observades
             st.markdown('**Variables observades**')
-            st.dataframe(variables_df, hide_index=True, width="stretch", height=320)
+            st.dataframe(
+                variables_df,
+                hide_index=True,
+                width="stretch",
+                height=_dataframe_height(len(variables_df)),
+            )
         else:
             st.info('No hi ha variables definides per aquest entorn.')
 
@@ -328,7 +392,12 @@ def render_kwargs_overview(kwargs: Dict[str, Any]) -> None:
         if not actuators_df.empty:
             # Taula actuadors
             st.markdown('**Actuadors**')
-            st.dataframe(actuators_df, hide_index=True, width="stretch", height=260)
+            st.dataframe(
+                actuators_df,
+                hide_index=True,
+                width="stretch",
+                height=_dataframe_height(len(actuators_df)),
+            )
         else:
             st.info('No hi ha actuadors configurats.')
 
@@ -379,9 +448,15 @@ def render_kwargs_overview(kwargs: Dict[str, Any]) -> None:
         st.markdown('**Altres camps**')
         st.dataframe(misc_df, hide_index=True, width="stretch")
 
-    with tab_raw:
-        # JSON brut kwargs
-        st.json(kwargs)
+        st.download_button(
+            "Descarregar JSON de configuració",
+            data=_json_download_payload(kwargs),
+            file_name=_safe_json_filename(env_name),
+            mime="application/json",
+            icon=":material/download:",
+            width="stretch",
+            key="download_environment_kwargs_json",
+        )
 
 
 def render_3d_viewer(
@@ -586,7 +661,7 @@ def render_environment_page() -> None:
 
         with col2:
             # Taules kwargs entorn
-            render_kwargs_overview(kwargs)
+            render_kwargs_overview(kwargs, env_selected)
 
     except Exception as error:
         st.error(f"Error carregant l'entorn: {error}")
