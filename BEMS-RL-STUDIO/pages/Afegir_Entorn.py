@@ -194,8 +194,12 @@ def render_weather_upload_card() -> tuple[Path, Any]:
             selected_weather_name = st.selectbox(
                 "Selecciona el fitxer de clima",
                 weather_files,
+                index=None,
+                placeholder="Tria un fitxer climàtic...",
+                key="add_env_existing_weather_file",
             )
-        selected_weather_path = add_env_backend.WEATHERS_DIR / selected_weather_name
+        if selected_weather_name:
+            selected_weather_path = add_env_backend.WEATHERS_DIR / selected_weather_name
     else:
         with climate_card:
             # upload fitxer clima
@@ -223,8 +227,6 @@ def render_weather_upload_card() -> tuple[Path, Any]:
                 st.success(f"Fitxer de clima carregat: {uploaded_weather_file.name}")
 
     if selected_weather_path is None:
-        # Avís seleccionar clima
-        st.info("Selecciona un fitxer climàtic per definir l'entorn.")
         st.stop()
 
     return selected_weather_path, climate_card
