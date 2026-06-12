@@ -21,16 +21,18 @@ from sidebar_nav import configure_studio_page
 
 from backend.avaluar_agent_backend import (
     ONE_YEAR_STEPS,
-    candidate_vecnorm,
-    env_id_from_meta_or_name,
     load_model_metadata,
     load_sb3_model_bytes,
     consume_evaluation_runtime_rerun_flag,
     request_evaluation_stop,
     reset_evaluation_runtime,
-    scan_model_zips,
     start_evaluation_run,
     sync_evaluation_runtime,
+)
+from backend.sb3_utils import (
+    candidate_vecnorm,
+    env_id_from_meta_or_name,
+    scan_model_zips,
 )
 PAGE_TITLE = "Avaluar Agent"
 PAGE_LAYOUT = "wide"

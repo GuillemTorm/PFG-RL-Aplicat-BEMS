@@ -219,7 +219,7 @@ def default_battery_variables(variable_names: Sequence[str], kind: str) -> List[
 
 def load_default_reward_variables(
     spec: Any, env_id: str, variables: Dict[str, Any]
-) -> Tuple[Dict[str, Any], List[str], List[str], List[str]]:
+) -> tuple[Dict[str, Any], List[str], List[str], List[str]]:
     """Carrega les variables de recompensa predeterminades."""
     resolved_variables = variables
     try:

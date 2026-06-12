@@ -14,7 +14,6 @@ from backend.entrenar_agent_session import (
     TRAINING_SAVED_RUN_KEY,
     apply_saved_training_ui_state,
 )
-from page_styles.training import inject_training_styles
 
 PAGE_TITLE = "Entrenar model RL"
 PAGE_LAYOUT = "wide"

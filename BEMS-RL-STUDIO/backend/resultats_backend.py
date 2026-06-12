@@ -169,6 +169,8 @@ def get_run_artifacts(selected_run: str) -> RunArtifacts:
         key=os.path.getmtime,
         reverse=True,
     )
+    # Quan hi ha més d'un episodi, el CSV més recent sol correspondre a l'episodi
+    # en curs (potencialment incomplet); agafem el segon, que és l'últim complet.
     selected_observation = (
         sorted_observation_files[1]
         if len(sorted_observation_files) > 1

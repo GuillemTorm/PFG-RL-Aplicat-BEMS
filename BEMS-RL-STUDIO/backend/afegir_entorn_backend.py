@@ -8,9 +8,6 @@ from __future__ import annotations
 
 from backend.afegir_entorn_analysis import (
     ProbeReward,
-    _build_actuator_option,
-    _collect_schedule_references_from_value,
-    _register_thermostat_candidate,
     build_actuator_label,
     build_training_analysis,
     default_bounds_for_category,

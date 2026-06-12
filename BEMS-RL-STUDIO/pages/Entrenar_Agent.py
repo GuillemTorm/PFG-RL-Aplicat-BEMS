@@ -29,7 +29,6 @@ from backend.entrenar_agent_session import (
     TRAINING_WORKSPACE_KEY,
     normalize_training_range_state,
     selectbox_state_kwargs,
-    training_form_key,
 )
 from backend.entrenar_agent_charts import (
     _get_workspace_from_runtime,
@@ -40,11 +39,11 @@ from page_components.training_rewards import render_reward_kwargs_section
 from page_components.training_shared import (
     PAGE_LAYOUT,
     PAGE_TITLE,
-    inject_training_styles,
     render_saved_training_library,
     render_training_hero,
     render_training_section,
 )
+from page_styles.training import inject_training_styles
 from page_components.training_wrappers import render_wrappers_section
 
 
@@ -320,10 +319,8 @@ def train_tab() -> None:
     try:
         if st.session_state.stop_training:
             training_status.warning("Aturant l'entrenament i guardant l'estat actual...")
-            was_stopped = True
         elif current_timesteps >= total_timesteps:
             training_status.success("Entrenament completat. Guardant el model...")
-            was_stopped = False
         else:
             training_status.info(
                 f"Entrenament en curs: {current_timesteps}/{total_timesteps} timesteps ({frac * 100:.1f}%)."

@@ -3,7 +3,6 @@
 Permet provar un model entrenat o aplicar accions manuals pas a pas.
 """
 
-from html import escape
 from pathlib import Path
 
 import gymnasium as gym
@@ -19,8 +18,8 @@ from page_components.ui_fragments import (
 from page_styles.interaccionar_agent import inject_interaction_styles
 from sidebar_nav import configure_studio_page
 
+from backend.sb3_utils import env_id_from_meta_or_name, scan_model_zips
 from backend.interaccionar_agent_backend import (
-    env_id_from_meta_or_name,
     extract_display_observation,
     extract_policy_test_defaults,
     find_matching_column,
@@ -37,7 +36,6 @@ from backend.interaccionar_agent_backend import (
     prepare_action_display,
     randomize_observation_values,
     run_environment_steps,
-    scan_model_zips,
 )
 
 
@@ -177,8 +175,9 @@ def _calendar_or_reward_metric(curr: dict, prev: dict | None, core_env: object) 
         season = "Hivern" if month in [12, 1, 2] else "Primavera" if month in [3, 4, 5] else "Estiu" if month in [6, 7, 8] else "Tardor"
         timestep_mins = "Desconegut"
         try:
-            if hasattr(core_env, "get_wrapper_attr"):
-                timestep_mins = getattr(core_env.unwrapped, "timestep", 15)
+            # model.step_size és la durada d'un pas de simulació en segons.
+            step_size_seconds = core_env.unwrapped.model.step_size
+            timestep_mins = int(round(step_size_seconds / 60))
         except Exception:
             pass
         return {
@@ -584,7 +583,7 @@ else:
         cool_col = find_matching_column(curr, ['cooling', 'clg_setpoint'])
         in_temp_col = find_matching_column(curr, ['air_temperature', 'indoor_temperature'])
         out_temp_col = find_matching_column(curr, ['outdoor_temperature', 'site_outdoor_air_drybulb_temperature'])
-        power_col = find_matching_column(curr, ['demand_rate', 'power', 'hvac_elèctricity_demand'])
+        power_col = find_matching_column(curr, ['demand_rate', 'power', 'hvac_electricity_demand'])
 
         # Primera fila: què ha decidit l'actuador i com canvia respecte al pas anterior.
         # Metriques accions actuador
@@ -679,14 +678,15 @@ else:
                         month_col = find_matching_column(curr, ['month'])
                         if month_col and curr[month_col] >= 6 and curr[month_col] <= 9:
                             is_summer = True
-                    except: pass
+                    except Exception:
+                        pass
 
                     try:
                         # Depèn de la reward concreta, per això el fallback és intencionat.
                         cfg = core_env.get_wrapper_attr('reward_kwargs') if hasattr(core_env, 'get_wrapper_attr') else {}
                         r_comfort_winter = cfg.get('range_comfort_winter', (20.0, 23.5))
                         r_comfort_summer = cfg.get('range_comfort_summer', (23.0, 26.0))
-                    except:
+                    except Exception:
                         r_comfort_winter = (20.0, 23.5)
                         r_comfort_summer = (23.0, 26.0)
 

@@ -18,7 +18,7 @@ from backend.entrenar_agent_env import (
     get_training_meters_for_env,
     load_default_reward_variables,
 )
-from backend.common import filter_supported_kwargs, format_ui_value
+from backend.common import filter_supported_kwargs
 from backend.entrenar_agent_wrappers import (
     build_energy_cost_wrapper_reward_kwargs,
     build_wrapper_configs,

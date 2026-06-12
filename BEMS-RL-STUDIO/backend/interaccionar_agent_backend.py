@@ -24,11 +24,9 @@ from backend.model_metadata import (
 from backend.sb3_utils import (
     candidate_vecnorm,
     build_monitored_vec_env,
-    env_id_from_meta_or_name,
     format_action_for_env,
     load_sb3_model_bytes,
     load_vecnormalize,
-    scan_model_zips,
     should_apply_normalize_action,
 )
 from backend.common import is_registered_env_id

@@ -13,7 +13,7 @@ import gymnasium as gym
 import numpy as np
 import pandas as pd
 import streamlit as st
-from page_components.ui_fragments import render_hero, render_section_title
+from page_components.ui_fragments import render_hero, render_kicker_section
 from sidebar_nav import configure_studio_page
 
 from backend.mapa_backend import render_location_map
@@ -60,7 +60,7 @@ def render_environment_hero() -> None:
 def render_environment_section(title: str, kicker: str, description: str) -> None:
     """Mostra la capçalera visual d'una secció."""
 
-    render_section_title(title)
+    render_kicker_section("environment-section-card", title, kicker, description)
 
 
 def describe_environment_tags(env_name: str) -> List[str]:

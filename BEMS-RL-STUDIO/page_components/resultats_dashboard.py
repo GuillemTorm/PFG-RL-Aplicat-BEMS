@@ -142,17 +142,21 @@ def _run_data_signature(progress_path: str, observations_path: str) -> tuple[obj
 
 
 def _load_comparison_data_cached(run_path: str) -> DashboardData | None:
-    """Carrega una comparació i la desa a la memòria cau de sessió."""
+    """Carrega una comparació i la desa a la memòria cau de sessió.
 
-    cache_key = f"_comp_data_{hash(run_path)}"
-    if cache_key in st.session_state:
-        return st.session_state[cache_key]
+    Es manté un únic slot keyed pel path per evitar que el session_state creixi
+    sense límit quan l'usuari va canviant de run de referència.
+    """
+
+    if st.session_state.get("_comp_data_path") == run_path:
+        return st.session_state.get("_comp_data")
 
     data = load_comparison_data(run_path)
     if data is None:
         return None
 
-    st.session_state[cache_key] = data
+    st.session_state["_comp_data_path"] = run_path
+    st.session_state["_comp_data"] = data
     return data
 
 @st.cache_data(show_spinner="Generant informe...", max_entries=10)
@@ -660,7 +664,6 @@ def render_inline_dashboard(
     )
 
     if comp_data is not None and comp_zobs is not None:
-        comp_action_data = select_radiant_action_data(comp_action_data, comp_data)
         comparison_figures = build_dashboard_figures(
             comp_data,
             comp_zobs,
